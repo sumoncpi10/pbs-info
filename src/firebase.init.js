@@ -13,12 +13,12 @@ const firebaseConfig = {
     // messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
     // appId: process.env.REACT_APP_APPID,
 
-    apiKey: "AIzaSyC1iWp_2nzv4AeXVUbXCsnsH6QpmFNqtTg",
-    authDomain: "pbs-office-info.firebaseapp.com",
-    projectId: "pbs-office-info",
-    storageBucket: "pbs-office-info.appspot.com",
-    messagingSenderId: "147892014815",
-    appId: "1:147892014815:web:a3196f0040297cd9db636a"
+    apiKey: "AIzaSyAj-VnYflUoE2009hL6X2bA5dGMaX1Ubwg",
+    authDomain: "pbs-inf.firebaseapp.com",
+    projectId: "pbs-inf",
+    storageBucket: "pbs-inf.appspot.com",
+    messagingSenderId: "1034888448889",
+    appId: "1:1034888448889:web:96e0bf241de12c9d61fda8"
 };
 
 // Initialize Firebase
