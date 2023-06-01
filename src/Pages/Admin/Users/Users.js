@@ -17,7 +17,7 @@ const Users = () => {
     const [admin] = useAdmin(use);
     console.log(admin);
     // useEffect(() => {
-    //     fetch(`https://pbsofficeinfosql.onrender.com/users`)
+    //     fetch(`http://localhost:5000/users`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data)
@@ -25,15 +25,15 @@ const Users = () => {
     //         })
     // }, []);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/usersByzonal/${admin?.zonal_code}`)
+        fetch(`http://localhost:5000/usersByzonal/${admin?.zonal_code}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data);
                 setUsers(data);
             })
     }, [admin?.zonal_code]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${use?.email}`)
+        fetch(`http://localhost:5000/user/${use?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -100,7 +100,7 @@ const Users = () => {
             displayName, trg_id, email, password, designation, phone, pbs_code, zonal_code, add_by
         };
 
-        const newuser = await users?.find(user => user.email == email)
+        const newuser = await users?.find(user => user.trg_id == trg_id)
         console.log(user)
         console.log(newuser)
         if (newuser) {
@@ -110,7 +110,7 @@ const Users = () => {
         else if (luser && email && password) {
             const rr = createUserWithEmailAndPassword(email, password);
             if (rr) {
-                fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
+                fetch('http://localhost:5000/userAdd', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -128,7 +128,7 @@ const Users = () => {
         }
         else if (luser && trg_id && password) {
 
-            fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
+            fetch('http://localhost:5000/userAdd', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -169,7 +169,7 @@ const Users = () => {
                                             <input name='trg_id' type="text" className="form-control" placeholder="Training ID" required />
                                         </div>
                                         <div className="form-group">
-                                            <input name='email' type="email" className="form-control" placeholder="Email address" />
+                                            <input name='email' type="email" className="form-control" autoComplete="off" placeholder="Email address" />
                                         </div>
                                         <div className="form-group">
                                             <input name='password' type="password" className="form-control" placeholder="Password" required />
@@ -263,28 +263,8 @@ const Users = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="row g-0 align-items-center pb-4">
-                    <div className="col-sm-6">
-                        <div><p className="mb-sm-0">Showing 1 to 10 of 57 entries</p></div>
-                    </div>
-                    <div className="col-sm-6">
-                        <div className="float-sm-end">
-                            <ul className="pagination mb-sm-0">
-                                <li className="page-item disabled">
-                                    <a href="#" className="page-link"><i className="mdi mdi-chevron-left"></i></a>
-                                </li>
-                                <li className="page-item active"><a href="#" className="page-link">1</a></li>
-                                <li className="page-item"><a href="#" className="page-link">2</a></li>
-                                <li className="page-item"><a href="#" className="page-link">3</a></li>
-                                <li className="page-item"><a href="#" className="page-link">4</a></li>
-                                <li className="page-item"><a href="#" className="page-link">5</a></li>
-                                <li className="page-item">
-                                    <a href="#" className="page-link"><i className="mdi mdi-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> */}
+
+
             </div>
         </div>
     );

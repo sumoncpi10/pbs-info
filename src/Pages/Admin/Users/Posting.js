@@ -41,17 +41,9 @@ const Posting = () => {
     // console.log(admin)
     const [luser, SetlUser] = useState([]);
     // console.log(user)
+
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/userId/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data[0]);
-                SetlUser(data[0]);
-                setPbsCode(data[0].pbs_code);
-            })
-    }, []);
-    useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/zonals/${pbs_code}`)
+        fetch(`http://localhost:5000/zonals/${pbs_code}`)
             .then(res => res.json())
             .then(data => {
                 setZonals(data);
@@ -59,7 +51,7 @@ const Posting = () => {
             })
     }, [pbs_code]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/ccs/${zonal_code}`)
+        fetch(`http://localhost:5000/ccs/${zonal_code}`)
             .then(res => res.json())
             .then(data => {
                 setCcs(data);
@@ -68,8 +60,18 @@ const Posting = () => {
                 console.log(pbs_code);
             })
     }, [zonal_code]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setPbsCode(data[0].pbs_code);
+                SetlUser(data[0]);
+
+            })
+    }, [user.email]);
     // useEffect(() => {
-    //     fetch(`https://pbsofficeinfo.onrender.com/user/${user?.email}`)
+    //     fetch(`http://localhost:5000/user/${user?.email}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
@@ -80,7 +82,7 @@ const Posting = () => {
     // const btnSearch = (e) => {
     //     e.preventDefault();
     //     const textSearch = e.target.textSearch.value;
-    //     fetch(`https://pbsofficeinfo.onrender.com/book/${textSearch}`)
+    //     fetch(`http://localhost:5000/book/${textSearch}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
@@ -107,7 +109,7 @@ const Posting = () => {
 
         console.log(product);
         // send data to the server
-        fetch(`https://pbsofficeinfosql.onrender.com/userPosting/${id}`, {
+        fetch(`http://localhost:5000/userPosting/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

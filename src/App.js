@@ -28,19 +28,19 @@ import KWInfo from './Pages/InfoEntry/KWInfo';
 
 
 function App() {
-  const [u, setU] = useState([]);
+  // const [u, setU] = useState([]);
 
-  useEffect(() => {
-    fetch(`https://pbsofficeinfosql.onrender.com/users`)
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data);
-        setU(data);
-      })
-  }, []);
-  if (!u) {
-    return <Loading></Loading>
-  }
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/users`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       // console.log(data);
+  //       setU(data);
+  //     })
+  // }, []);
+  // if (!u) {
+  //   return <Loading></Loading>
+  // }
   return (
     <>
       <div className="page-wrapper bg-gra-02  font-poppins">

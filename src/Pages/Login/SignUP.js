@@ -36,7 +36,7 @@ const SignUP = ({ setuserV }) => {
     }
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfo.onrender.com/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -65,7 +65,7 @@ const SignUP = ({ setuserV }) => {
                 navigate(from, { replace: true });
             }
             else {
-                fetch('https://pbsofficeinfo.onrender.com/userAdd', {
+                fetch('http://localhost:5000/userAdd', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -94,7 +94,7 @@ const SignUP = ({ setuserV }) => {
                 navigate(from, { replace: true });
             }
             else {
-                fetch('https://pbsofficeinfo.onrender.com/userAdd', {
+                fetch('http://localhost:5000/userAdd', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

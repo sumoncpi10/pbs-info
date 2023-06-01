@@ -38,7 +38,7 @@ const Profile = () => {
     console.log(admin);
     console.log(user.email);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
+        fetch(`http://localhost:5000/user/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -50,7 +50,7 @@ const Profile = () => {
     const btnSearch = (e) => {
         e.preventDefault();
         const textSearch = e.target.textSearch.value;
-        fetch(`https://pbsofficeinfo.onrender.com/book/${textSearch}`)
+        fetch(`http://localhost:5000/book/${textSearch}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -73,7 +73,7 @@ const Profile = () => {
 
         console.log(product);
         // send data to the server
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${id}`, {
+        fetch(`http://localhost:5000/user/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -146,8 +146,8 @@ const Profile = () => {
                                         {users?.designation == 'gm' && <option selected value='gm'>GM</option>}
                                         {users?.designation == 'dgm' && <option selected value='dgm'>DGM</option>}
                                         {users?.designation == 'agm' && <option selected value='agm'>AGM</option>}
-                                        {users?.designation == 'agm-it' && <option selected value='agm'>AGM(IT)</option>}
-                                        {users?.designation == 'je-it' && <option selected value='je'>JE(IT)</option>}
+                                        {users?.designation == 'agm-it' && <option selected value='agm-it'>AGM(IT)</option>}
+                                        {users?.designation == 'je-it' && <option selected value='je-it'>JE(IT)</option>}
                                         {users?.designation == 'je' && <option selected value='je'>JE</option>}
                                         {users?.designation == 'ec' && <option selected value='ec'>EC</option>}
                                         {users?.designation == 'ac' && <option selected value='ac'>Accountant</option>}
@@ -155,7 +155,7 @@ const Profile = () => {
                                         {users?.designation == 'msc' && <option selected value='msc'>MSC</option>}
                                         {users?.designation == 'sc' && <option selected value='sc'>Store Coordinator</option>}
                                         {users?.designation == 'aec' && <option selected value='aec'>AEC</option>}
-                                        {users?.designation == 'aje-it' && <option selected value='aje'>AJE(IT)</option>}
+                                        {users?.designation == 'aje-it' && <option selected value='aje-it'>AJE(IT)</option>}
                                         {users?.designation == 'aje' && <option selected value='aje'>AJE</option>}
                                         {users?.designation == 'bs' && <option selected value='bs'>BS</option>}
                                         {users?.designation == 'mts' && <option selected value='mts'>MTS</option>}
@@ -215,7 +215,7 @@ const Profile = () => {
                             <div className="col-2">
                                 <div className="input-group">
                                     <label className="label">ইমেইল</label>
-                                    <input name='email' className="input--style-4" type="email" value={users?.email} disabled />
+                                    <input name='email' className="input--style-4" type="email" value={users?.email ? users?.email : user?.email} disabled />
                                 </div>
                             </div>
                             <div className="col-2">

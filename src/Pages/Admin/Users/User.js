@@ -6,7 +6,7 @@ const User = ({ user }) => {
     const navigate = useNavigate();
     // console.log(user)
     // useEffect(() => {
-    //     fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.trg_id}`)
+    //     fetch(`http://localhost:5000/user/${user?.trg_id}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             // console.log(data);
@@ -14,7 +14,7 @@ const User = ({ user }) => {
     //         })
     // }, []);
     const EmpPosting = id => {
-        const proceed = window.confirm('Are You Sure You Want To Update The Book!');
+        const proceed = window.confirm('Are You Sure To Update User!');
         console.log(id, proceed);
         if (proceed) {
             navigate(`/posting/${id}`);

@@ -18,7 +18,7 @@ const Login = ({ setuserV }) => {
 
     ] = useSignInWithEmailAndPassword(auth);
     const [email, setEmail] = useState('');
-    const [trg_id, setTrg_id] = useState('');
+    // const [email?, setTrg_id] = useState('');
     const [password, setPassword] = useState('');
     const [userG] = useAuthState(auth);
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Login = ({ setuserV }) => {
     }
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfo.onrender.com/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -50,54 +50,54 @@ const Login = ({ setuserV }) => {
             </div>
         );
     }
-    // const btnUserCreate = async (e) => {
-    //     e.preventDefault();
-    //     const r = await signInWithGoogle();
-    //     console.log(r.user)
-    //     if (await r) {
-    //         const newuser = await users?.find(user => user.email == r.user.email)
-    //         console.log(newuser);
-    //         if (newuser) {
-    //             toast("Signed in Successfully!");
-    //             navigate(from, { replace: true });
-    //         }
-    //         else {
-    //             fetch('https://pbsofficeinfo.onrender.com/userAdd', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(r?.user)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     // console.log('success', data);
-    //                     toast("User Create Successfully!");
-    //                     navigate(from, { replace: true });
-    //                 })
-    //         }
+    const btnUserCreate = async (e) => {
+        e.preventDefault();
+        const r = await signInWithGoogle();
+        console.log(r.user)
+        const displayName = r?.user?.displayName;
+        const email = r?.user?.email;
+        const photoURL = r?.user?.photoURL;
 
-    //     }
-    // }
+        const user = {
+            email, displayName, photoURL
+        };
+        if (await r) {
+            const newuser = await users?.find(user => user.email == email)
+            // console.log(newuser);
+            if (newuser) {
+                toast("Signed in Successfully!");
+                // navigate(from, { replace: true });
+            }
+            else {
+                fetch('http://localhost:5000/userAddG', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log('success', data);
+                        toast("Signed in Successfully And Craete User!");
+                        navigate(from, { replace: true });
+                    })
+            }
+
+        }
+    }
     const actionCodeSettings = {
         url: 'http://localhost:3000/login',
     };
-    const btnLogin = async (e) => {
-        // signInWithEmailAndPassword(email, password)
-        if (trg_id && password) {
-            fetch(`https://pbsofficeinfosql.onrender.com/Login?trg_id=${trg_id}&password=${password}`)
-                .then(res => res.json())
-                .then(data => {
-                    // setCollectionInfo(data);
-                    console.log(data);
-                    // setTimeout(totalAdd(data), 2000);
-                    // e.target.reset();
-                })
-        }
-        else {
-            toast("Opps!!!! Your Information is not Correct!!!");
-        }
-    }
+    // const btnLogin = async (e) => {
+    //     // signInWithEmailAndPassword(email, password)
+    //     if (email && password) {
+
+    //     }
+    //     else {
+    //         toast("Opps!!!! Enter Training ID & Password!!!");
+    //     }
+    // }
 
     return (
         <div className='container'>
@@ -115,7 +115,7 @@ const Login = ({ setuserV }) => {
                                         <input onChange={(e) => setEmail(e.target.value)} name='email' type="text" className="form-control rounded-left" placeholder="Username" required />
                                     </div> */}
                                     <div className="form-group">
-                                        <input onChange={(e) => setTrg_id(e.target.value)} name='trg_id' type="text" className="form-control rounded-left" placeholder="User ID" required />
+                                        <input onChange={(e) => setEmail(e.target.value)} name='email' type="text" className="form-control rounded-left" placeholder="User ID" required />
                                     </div>
                                     <div className="form-group d-flex">
                                         <input onChange={(e) => setPassword(e.target.value)} name='password' type="password" className="form-control rounded-left" placeholder="Password" required />
@@ -141,11 +141,11 @@ const Login = ({ setuserV }) => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <button onClick={btnLogin} type="button" className="btn btn-primary fs-5 px-5 w-100">Login</button>
+                                        <button onClick={() => signInWithEmailAndPassword(email, password)} type="button" className="btn btn-primary fs-5 px-5 w-100">Login</button>
                                     </div>
-                                    {/* <div className="form-group">
+                                    <div className="form-group">
                                         <button className="btn btn-secondary w-100" onClick={btnUserCreate}>Continue With Google</button>
-                                    </div> */}
+                                    </div>
 
                                 </form>
                             </div>
