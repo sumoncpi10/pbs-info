@@ -26,7 +26,7 @@ const Books = () => {
                 setBookInfo(data);
                 console.log(data);
             })
-    }, [admin?.zonal_code]);
+    }, [admin]);
     const btnEdit = id => {
         const proceed = window.confirm('Are You Sure You Want To Update The Book!');
         console.log(id, proceed);

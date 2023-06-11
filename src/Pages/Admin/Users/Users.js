@@ -16,6 +16,7 @@ const Users = () => {
     const [use] = useAuthState(auth);
     const [admin] = useAdmin(use);
     console.log(admin);
+    // console.log(use);
     // useEffect(() => {
     //     fetch(`http://localhost:5000/users`)
     //         .then(res => res.json())
@@ -31,7 +32,7 @@ const Users = () => {
                 console.log(data);
                 setUsers(data);
             })
-    }, [admin?.zonal_code]);
+    }, [admin]);
     useEffect(() => {
         fetch(`http://localhost:5000/user/${use?.email}`)
             .then(res => res.json())
@@ -39,7 +40,7 @@ const Users = () => {
                 // console.log(data);
                 setLUser(data);
             })
-    }, [use.email]);
+    }, [use?.email]);
     const ok = (e) => {
         e.preventDefault();
         (function ($) {
@@ -249,13 +250,16 @@ const Users = () => {
                                             <th scope="col">Name</th>
                                             <th scope="col">Position</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Projects</th>
-                                            <th scope="col" style={{ "width": "200px" }}>Action</th>
+
+                                            {
+                                                admin.designation == 'je-it' ? <th scope="col" style={{ "width": "200px" }}>Action</th> : ""
+                                            }
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
-                                            (admin.designation == 'dgm' || admin.designation == 'gm' || admin.designation == 'admin.designation' || admin.designation == 'je-it' || admin.designation == 'aje-it' || admin.designation == 'agm-it') && users?.map(user => <User user={user} key={user.id}></User>)
+                                            (admin.designation == 'dgm' || admin.designation == 'gm' || admin.designation == 'admin.designation' || admin.designation == 'je-it' || admin.designation == 'aje-it' || admin.designation == 'agm-it') && users?.map(user => <User user={user} admin={admin
+                                            } key={user.id}></User>)
                                         }
                                     </tbody>
                                 </table>

@@ -40,6 +40,7 @@ const Posting = () => {
     const [zonal_code, setZonalCode] = useState('');
     // console.log(admin)
     const [luser, SetlUser] = useState([]);
+    // const [user, SetUser] = useState([]);
     // console.log(user)
 
     useEffect(() => {
@@ -66,6 +67,16 @@ const Posting = () => {
             .then(data => {
                 console.log(data);
                 setPbsCode(data[0].pbs_code);
+                // SetlUser(data[0]);
+
+            })
+    }, [user.email]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/userId/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // setPbsCode(data[0].pbs_code);
                 SetlUser(data[0]);
 
             })
@@ -306,7 +317,7 @@ const Posting = () => {
                             <div className="col-2">
                                 <div className="input-group">
                                     <label className="label">প্রশিক্ষণ আইডি</label>
-                                    <input onChange={trgIdChange} name='trg_id' className="input--style-4" type="text" value={luser.trg_id} disabled />
+                                    <input onChange={trgIdChange} name='trg_id' className="input--style-4" type="text" value={luser.trg_id} />
                                 </div>
                             </div>
                         </div>
