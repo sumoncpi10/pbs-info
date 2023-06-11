@@ -3,7 +3,7 @@ import './DNPReports.css';
 const DNPReports = () => {
     const [dnpInfo, setDnpInfo] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/dnp`)
+        fetch(`https://pbsofficeinfosql.onrender.com/dnp`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
