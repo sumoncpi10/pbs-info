@@ -40,7 +40,7 @@ const DNPInfo = () => {
     // const today = new Date(),
     //     date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     // useEffect(() => {
-    //     fetch(`https://pbsofficeinfosql.onrender.com/office?complainCenter=${book?.complainCenter ? book?.complainCenter : book?.zonal}`)
+    //     fetch(`http://localhost:5000/office?complainCenter=${book?.complainCenter ? book?.complainCenter : book?.zonal}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
@@ -48,7 +48,7 @@ const DNPInfo = () => {
     //         })
     // }, [book]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -60,7 +60,7 @@ const DNPInfo = () => {
     const btnSearch = (e) => {
         e.preventDefault();
         const textSearch = e.target.textSearch.value;
-        fetch(`https://pbsofficeinfosql.onrender.com/book/${textSearch}`)
+        fetch(`http://localhost:5000/book/${textSearch}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -90,7 +90,7 @@ const DNPInfo = () => {
         console.log(product);
         // send data to the server
 
-        fetch('https://pbsofficeinfosql.onrender.com/cashAdd', {
+        fetch('http://localhost:5000/cashAdd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -121,34 +121,7 @@ const DNPInfo = () => {
                     </div>
 
                     <form method="POST" onSubmit={handleAddDNPInfo}>
-                        {/* <div className="row row-space">
-                            <div className="col-2 collapse">
-                                <div className="input-group">
-                                    <label className="label">পবিসের নাম</label>
-                                    <input className="input--style-4" type="email" name="email" />
-                                    <select name="pbs" className="input--style-4" style={{ "width": "550px", "lineHeight": "50px" }}>
-                                        {book?.pbs == "2902" && <option value='29'>রাঙ্গুনিয়া জোনাল অফিস</option>}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-2">
-                                <div className="input-group">
-                                    <label className="label">অফিসের নাম</label>
-                                    <input className="input--style-4" type="email" name="email" />
-                                    <input type='date'></input>
-                                </div>
-                            </div>
-                            <div className="col-2">
-                                <div className="">
-                                    <DayPicker
-                                        mode="single"
-                                        defaultValue={cdate}
-                                        onSelect={setCDate}
-                                    />
-                                </div>
-                                <p>You Have defaultValue:{format(cdate, 'PP')}</p>
-                            </div>
-                        </div> */}
+
                         <div className="row row-space">
                             <div className="col-2">
                                 <div className="input-group">
@@ -172,7 +145,7 @@ const DNPInfo = () => {
                                 <div className="input-group">
                                     <label className="label">অফিসের নাম</label>
                                     <select name="zonal_code" className="input--style-4" style={{ "width": "550px", "lineHeight": "50px" }}>
-                                        <option value={book.zonal_code}>{book.zonal_name}</option>
+                                        <option value={book?.zonal_code}>{book?.zonal_name}</option>
                                     </select>
                                 </div>
                             </div>
@@ -180,7 +153,7 @@ const DNPInfo = () => {
                                 <label className="label">অভিযোগ কেন্দ্র</label>
                                 <div className="input-group">
                                     <select name="cc_code" className="input--style-4" style={{ "width": "550px", "lineHeight": "50px" }}>
-                                        <option value={book.cc_code}>{book.cc_name}</option>
+                                        <option value={book?.cc_code}>{book?.cc_name}</option>
                                     </select>
                                 </div>
                             </div>
@@ -205,7 +178,7 @@ const DNPInfo = () => {
                                 <div className="input-group">
                                     <label className="label">দ্বায়িত্বপ্রাপ্ত কর্মকর্তা/কর্মচারী</label>
                                     <select name="assign_to" className="" style={{ "width": "250px", "lineHeight": "50px" }}>
-                                        <option value={book.assign_to}>{book.displayName},{book.designation}</option>
+                                        <option value={book?.assign_to}>{book?.displayName},{book?.designation}</option>
                                     </select>
                                 </div>
                             </div>
@@ -214,7 +187,7 @@ const DNPInfo = () => {
                                 <div className="input-group">
                                     <select name="collected_by" className="" style={{ "width": "250px", "lineHeight": "50px" }}>
                                         {
-                                            users.map(u => <option key={u.id} defaultValue={u.trg_id == book.assign_to} value={u.id}>{u.displayName}, {u.designation}</option>)
+                                            users.map(u => <option key={u.id} defaultValue={u.trg_id == book?.assign_to} value={u.id}>{u.displayName}, {u.designation}</option>)
                                         }
                                     </select>
                                 </div>

@@ -34,7 +34,7 @@ const Login = ({ setuserV }) => {
     }
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -69,7 +69,7 @@ const Login = ({ setuserV }) => {
                 // navigate(from, { replace: true });
             }
             else {
-                fetch('https://pbsofficeinfosql.onrender.com/userAddG', {
+                fetch('http://localhost:5000/userAddG', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

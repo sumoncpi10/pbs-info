@@ -11,7 +11,7 @@ const Books = () => {
     const [admin] = useAdmin(use);
     console.log(admin);
     // useEffect(() => {
-    //     fetch(`https://pbsofficeinfosql.onrender.com/books`)
+    //     fetch(`http://localhost:5000/books`)
     //         .then(res => res.json())
     //         .then(data => {
     //             setBookInfo(data);
@@ -20,7 +20,7 @@ const Books = () => {
     //         })
     // }, []);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/booksByzonal/${admin?.zonal_code}`)
+        fetch(`http://localhost:5000/booksByzonal/${admin?.zonal_code}`)
             .then(res => res.json())
             .then(data => {
                 setBookInfo(data);

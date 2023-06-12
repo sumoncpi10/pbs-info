@@ -103,7 +103,7 @@ const OfficeInfo = () => {
         console.log(product);
         // send data to the server
 
-        fetch('https://pbsofficeinfosql.onrender.com/dnpBookAdd', {
+        fetch('http://localhost:5000/dnpBookAdd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

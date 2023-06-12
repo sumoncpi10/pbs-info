@@ -38,7 +38,7 @@ const Profile = () => {
     console.log(admin);
     console.log(user.email);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
+        fetch(`http://localhost:5000/user/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -50,7 +50,7 @@ const Profile = () => {
     const btnSearch = (e) => {
         e.preventDefault();
         const textSearch = e.target.textSearch.value;
-        fetch(`https://pbsofficeinfosql.onrender.com/book/${textSearch}`)
+        fetch(`http://localhost:5000/book/${textSearch}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -73,7 +73,7 @@ const Profile = () => {
 
         console.log(product);
         // send data to the server
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${id}`, {
+        fetch(`http://localhost:5000/user/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ import User from '../Users/User';
 const Offices = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -74,7 +74,7 @@ const Offices = () => {
             pbs, zonal, complainCenter
         };
 
-        fetch('https://pbsofficeinfosql.onrender.com/officeAdd', {
+        fetch('http://localhost:5000/officeAdd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
