@@ -21,7 +21,7 @@ const KWReport = () => {
     const [AmmountOfDC, setAmmountOfDC] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/kws`)
+        fetch(`https://pbsofficeinfosql.onrender.com/kws`)
             .then(res => res.json())
             .then(data => {
                 setKWInfo(data);
@@ -31,7 +31,7 @@ const KWReport = () => {
             })
     }, []);
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://pbsofficeinfosql.onrender.com/users`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -40,7 +40,7 @@ const KWReport = () => {
             })
     }, []);
     useEffect(() => {
-        fetch(`http://localhost:5000/zonals/${pbs_code}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/zonals/${pbs_code}`)
             .then(res => res.json())
             .then(data => {
                 setZonals(data);
@@ -48,7 +48,7 @@ const KWReport = () => {
             })
     }, [pbs_code]);
     useEffect(() => {
-        fetch(`http://localhost:5000/ccs/${zonal_code}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/ccs/${zonal_code}`)
             .then(res => res.json())
             .then(data => {
                 setCcs(data);
@@ -80,7 +80,7 @@ const KWReport = () => {
         const month = e.target.month.value;
 
         console.log(pbs_code, zonal_code, year, month);
-        fetch(`http://localhost:5000/kw?pbs_code=${pbs_code}&zonal_code=${zonal_code}&year=${year}&month=${month}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/kw?pbs_code=${pbs_code}&zonal_code=${zonal_code}&year=${year}&month=${month}`)
             .then(res => res.json())
             .then(data => {
                 setKWInfo(data);
@@ -281,7 +281,7 @@ const KWReport = () => {
                                             <td>{kw ? kw : "0"}</td>
                                             <td>{kwAmount ? kwAmount : "0"}</td>
                                             <td></td>
-                                            <td></td>
+
                                             {
                                                 // users.map(user => user._id == collection.collectedBy ? < td > {user.displayName}</td> : '')
                                             }

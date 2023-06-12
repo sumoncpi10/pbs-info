@@ -40,7 +40,7 @@ const KWInfo = () => {
     // const today = new Date(),
     //     date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/office?complainCenter=${book?.complainCenter ? book?.complainCenter : book?.zonal}`)
+    //     fetch(`https://pbsofficeinfosql.onrender.com/office?complainCenter=${book?.complainCenter ? book?.complainCenter : book?.zonal}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
@@ -48,7 +48,7 @@ const KWInfo = () => {
     //         })
     // }, [book]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://pbsofficeinfosql.onrender.com/users`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -60,7 +60,7 @@ const KWInfo = () => {
     const btnSearch = (e) => {
         e.preventDefault();
         const textSearch = e.target.textSearch.value;
-        fetch(`http://localhost:5000/book/${textSearch}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/book/${textSearch}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -87,7 +87,7 @@ const KWInfo = () => {
         console.log(product);
         // send data to the server
 
-        fetch('http://localhost:5000/kwAdd', {
+        fetch('https://pbsofficeinfosql.onrender.com/kwAdd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
