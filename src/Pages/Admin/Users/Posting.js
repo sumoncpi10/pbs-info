@@ -254,6 +254,8 @@ const Posting = () => {
                                         {luser.designation == 'mt' && <option selected value='mt'>MT</option>}
                                         {luser.designation == 'lm2' && <option selected value='lm2'>LM-2</option>}
                                         {luser.designation == 'lc' && <option selected value='lc'>Line Crew</option>}
+                                        {luser.designation == 'll' && <option selected value='ll'>Line Labour</option>}
+                                        {luser.designation == 'dri' && <option selected value='dri'>Driver</option>}
                                         {luser.designation == 'mrcm' && <option selected value='mrcm'>MRCM</option>}
                                         {luser.designation == 'oh' && <option selected value='oh'>OH</option>}
                                         <option value='gm'>GM</option>
@@ -285,8 +287,11 @@ const Posting = () => {
                                         <option value='mt'>MT</option>
                                         <option value='lm2'>LM-2</option>
                                         <option value='lc'>Line Crew</option>
-                                        <option value='mrcm'>MRCM</option>
+                                        <option value='ll'>Line Labour</option>
+                                        <option value='dri'>Driver</option>
+                                        <option value='sg'>SG</option>
                                         <option value='oh'>OH</option>
+                                        <option value='mrcm'>MRCM</option>
                                     </select>
                                 </div>
                             </div>
