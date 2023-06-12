@@ -42,6 +42,7 @@ const Header = () => {
                             <ul className="dropdown-menu">
 
                                 <li><Link className="dropdown-item" to="/collection-info-report">আদায়ের তথ্য</Link></li>
+                                <li><Link className="dropdown-item" to="/kw-sales-info-report">বিক্রয় কিলোয়াট</Link></li>
                                 {/* <li><Link className="dropdown-item" to="/dnp-info-report">বকেয়ার তথ্য</Link></li> */}
                                 {/* <li><hr className="dropdown-divider" /></li> */}
                                 {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}

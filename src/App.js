@@ -10,6 +10,7 @@ import UpdateBookInfo from './Pages/Admin/Books/UpdateBookInfo';
 import RequireAuth from './Pages/Login/RequireAuth';
 import DNPReports from './Pages/Reports/DNPReports';
 import CollectionReports from './Pages/Reports/CollectionReports';
+import KWReport from './Pages/Reports/KWReport';
 import Login from './Pages/Login/Login';
 import Header from './Pages/Shared/Header';
 import Footer from './Pages/Shared/Footer';
@@ -52,6 +53,7 @@ function App() {
           <Route path="/book-info" element={<RequireAuth><BookInfo /></RequireAuth>}></Route>
           <Route path="/books/:id" element={<RequireAuth><UpdateBookInfo /></RequireAuth>}></Route>
           <Route path="/collection-info-report" element={<RequireAuth><CollectionReports /></RequireAuth>}></Route>
+          <Route path="/kw-sales-info-report" element={<RequireAuth><KWReport /></RequireAuth>}></Route>
           <Route path="/dnp-info-report" element={<RequireAuth><DNPReports /></RequireAuth>}></Route>
           <Route path="/users" element={<RequireAuth><Users /></RequireAuth>}></Route>
           {/* <Route path="/users" element={<Users />}></Route> */}
