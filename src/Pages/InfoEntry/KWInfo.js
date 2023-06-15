@@ -115,7 +115,7 @@ const KWInfo = () => {
             <div className="card card-4">
 
                 <div className="card-body">
-                    <h2 className="title">বকেয়া আদায়ের তথ্য</h2>
+                    <h2 className="title">মোট কিলোয়াট তথ্য(মাস ভিত্তিক)</h2>
                     <div className="container-fluid p-2 mb-3">
                         <form onSubmit={btnSearch} className="d-flex" role="search">
                             <input name='textSearch' className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
