@@ -96,7 +96,8 @@ const Books = () => {
                                             <th scope="col">Book No</th>
                                             <th scope="col">Consumer(N)</th>
                                             <th scope="col">DC Consumer(N)</th>
-                                            <th scope="col" style={{ "width": "200px" }}>Action</th>
+                                            {
+                                                (admin.designation == 'dgm' || admin.designation == 'bs' || admin.designation == 'je-it' || admin.designation == 'aje-it' || admin.designation == 'agm-it') && <th scope="col" style={{ "width": "200px" }}>Action</th>}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,17 +108,18 @@ const Books = () => {
                                                 </th>
                                                 {/* <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">{book?.empName}</a></td> */}
                                                 <td><a href="#" className="text-body">{book?.displayName}</a><span className="badge badge-soft-success mb-0">{book?.designation}</span></td>
-                                                <td>{book?.zonal_name}</td>
-                                                <td>{book?.cc_name}</td>
+                                                <td>{book?.zonal_code}</td>
+                                                <td>{book?.cc_code}</td>
                                                 <td>{book?.bookNo}</td>
                                                 <td>{book?.numberOfConsumer}</td>
                                                 <td>{book?.numberOfDcConsumer}</td>
-                                                <td>
-                                                    <ul className="list-inline mb-0">
-                                                        <li className="list-inline-item">
-                                                            <button onClick={() => btnEdit(book?.id)} className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></button>
-                                                        </li>
-                                                        {/* <li className="list-inline-item">
+                                                {
+                                                    (admin.designation == 'dgm' || admin.designation == 'bs' || admin.designation == 'je-it' || admin.designation == 'aje-it' || admin.designation == 'agm-it') && <td>
+                                                        <ul className="list-inline mb-0">
+                                                            <li className="list-inline-item">
+                                                                <button onClick={() => btnEdit(book?.id)} className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></button>
+                                                            </li>
+                                                            {/* <li className="list-inline-item">
                                                             <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                         </li>
                                                         <li className="list-inline-item dropdown">
@@ -126,8 +128,10 @@ const Books = () => {
                                                                 <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                             </div>
                                                         </li> */}
-                                                    </ul>
-                                                </td>
+                                                        </ul>
+                                                    </td>
+                                                }
+
                                             </tr>)
                                         }
 
