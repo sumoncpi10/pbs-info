@@ -25,6 +25,7 @@ import Posting from './Pages/Admin/Users/Posting';
 import Loading from './Pages/Shared/Loading';
 import { useEffect, useState } from 'react';
 import KWInfo from './Pages/InfoEntry/KWInfo';
+import BillImport from './Pages/Import/BillImport';
 
 
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="/kw-sales-info-report" element={<RequireAuth><KWReport /></RequireAuth>}></Route>
           <Route path="/dnp-info-report" element={<RequireAuth><DNPReports /></RequireAuth>}></Route>
           <Route path="/users" element={<RequireAuth><Users /></RequireAuth>}></Route>
+          <Route path="/importBill" element={<RequireAuth><BillImport /></RequireAuth>}></Route>
           {/* <Route path="/users" element={<Users />}></Route> */}
           <Route path="/books" element={<RequireAuth><Books></Books></RequireAuth>}></Route>
           <Route path="/offices" element={<RequireAuth><Offices></Offices></RequireAuth>}></Route>
