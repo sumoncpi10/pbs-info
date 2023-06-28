@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg sticky-top">
             <div className="container">
-                <Link className="navbar-brand" to="/">Office Info</Link>
+                <Link className="navbar-brand" to="/">PBS Office Info</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -69,11 +69,11 @@ const Header = () => {
                     {
                         !user ?
                             <div className="d-flex">
+                                <Link to='/users/mybill' className='btn btn-primary'>My Electricity Bill</Link>
                                 <Link to='/login' className='btn btn-primary'>Login</Link>
-                                {/* <Link to='/signup' className='btn btn-secondary'>Sign Up</Link> */}
                                 {/* <Link to='/signup' className='btn btn-primary mx-2'>SignUp</Link> */}
                             </div>
-                            :
+                            :<><Link to='/users/mybill' className='btn btn-primary mx-3'>My Electricity Bill</Link>
                             <div className="flex-shrink-0 dropdown">
                                 <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
                                     <img src={user.photoURL ? user.photoURL : "https://api.lorem.space/image/face?hash=33791"} alt="mdo" width="32" height="32" className="rounded-circle" />
@@ -89,6 +89,8 @@ const Header = () => {
                                     <li><a className="dropdown-item" onClick={logout}>Sign out</a></li>
                                 </ul>
                             </div>
+                            </>
+                            
                     }
                 </div>
             </div>

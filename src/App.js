@@ -11,6 +11,7 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import DNPReports from './Pages/Reports/DNPReports';
 import CollectionReports from './Pages/Reports/CollectionReports';
 import KWReport from './Pages/Reports/KWReport';
+import MyBill from './Pages/Users/MyBill';
 import Login from './Pages/Login/Login';
 import Header from './Pages/Shared/Header';
 import Footer from './Pages/Shared/Footer';
@@ -64,6 +65,7 @@ function App() {
           <Route path="/addUser" element={<RequireAuth><AddUser /></RequireAuth>}></Route>
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>}></Route>
           <Route path="/posting/:id" element={<RequireAuth><Posting /></RequireAuth>}></Route>
+          <Route path="/users/mybill" element={<MyBill />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUP />}></Route>
         </Routes>
