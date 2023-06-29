@@ -28,7 +28,7 @@ console.log(values)
    }
    const handleImportBill=(e)=>{
     e.preventDefault();
-    fetch('http://localhost:5000/import-csv', {
+    fetch('https://pbsofficeinfosql.onrender.com/import-csv', {
             method: 'POST',
             // limits:{fileSize: '1gb'},
             headers: {
