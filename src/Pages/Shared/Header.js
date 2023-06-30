@@ -1,15 +1,37 @@
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import { useEffect, useState } from "react";
 
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+      const [token, setToken] = useState('');
+      const [user, setUser] = useState(null);
+        const navigate = useNavigate();
+    // const [user, loading, error] = useAuthState(auth);
+    useEffect(() => {
+    // Check if a token exists in localStorage or sessionStorage
+   const storedToken = localStorage.getItem('token');
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedToken && storedUser) {
+      setToken(storedToken);
+      setUser(storedUser);
+    }
+  }, [localStorage.getItem('token')]);
     // console.log(user);
-    const logout = () => {
-        signOut(auth);
-        // localStorage.removeItem('accessToken');
+    // const logout = () => {
+    //     signOut(auth);
+    //     // localStorage.removeItem('accessToken');
+    // };
+    const handleLogout = () => {
+      // Clear the token from localStorage or sessionStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      setToken('');
+      setUser('')
+       navigate("/userLogin");
     };
     return (
         <nav className="navbar navbar-expand-lg sticky-top">
@@ -67,16 +89,18 @@ const Header = () => {
                         </li>
                     </ul>
                     {
-                        !user ?
+                        !token ?
                             <div className="d-flex">
-                                <Link to='/users/mybill' className='btn btn-primary'>My Electricity Bill</Link>
-                                <Link to='/login' className='btn btn-primary'>Login</Link>
+                                {/* <Link to='/users/mybill' className='btn btn-primary'>My Electricity Bill</Link> */}
+                                {/* <Link to='/login' className='btn btn-primary'>Login</Link> */}
+                                <Link to='/userLogin' className='btn btn-primary'>LOGIN</Link>
                                 {/* <Link to='/signup' className='btn btn-primary mx-2'>SignUp</Link> */}
+                                {/* <button className="dropdown-item" onClick={handleLogout}>Log out</button> */}
                             </div>
                             :<><Link to='/users/mybill' className='btn btn-primary mx-3'>My Electricity Bill</Link>
                             <div className="flex-shrink-0 dropdown">
                                 <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-                                    <img src={user.photoURL ? user.photoURL : "https://api.lorem.space/image/face?hash=33791"} alt="mdo" width="32" height="32" className="rounded-circle" />
+                                    <img src={user?.photoURL ? user.photoURL : "https://api.lorem.space/image/face?hash=33791"} alt="mdo" width="32" height="32" className="rounded-circle" />
                                 </a>
                                 <ul className=" dropdown-menu text-small shadow collapse" data-popper-placement="bottom-end" style={{ "position": "absolute", "inset": "0px 0px auto auto", "margin": "0px", "transform": "translate(0px, 34px)" }}>
                                     <li >
@@ -86,7 +110,8 @@ const Header = () => {
                                     <li><a className="dropdown-item" href="#">Settings</a></li>
                                     <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" onClick={logout}>Sign out</a></li>
+                                    {/* <li><a className="dropdown-item" onClick={logout}>Sign out</a></li> */}
+                                    <li><a className="dropdown-item" onClick={handleLogout}>Log out</a></li>
                                 </ul>
                             </div>
                             </>

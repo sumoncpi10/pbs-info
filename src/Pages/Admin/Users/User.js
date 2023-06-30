@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-const User = ({ user, admin }) => {
+const User = ({ user }) => {
     const [luser, SetlUser] = useState([]);
     const navigate = useNavigate();
-    console.log(admin)
+    console.log(user)
     // useEffect(() => {
     //     fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.trg_id}`)
     //         .then(res => res.json())
@@ -29,8 +29,6 @@ const User = ({ user, admin }) => {
             <td><span className="badge badge-soft-success mb-0">{user?.designation}</span></td>
             <td>{user?.email}</td>
 
-            {
-                admin.designation == 'je-it' ?
                     <td>
                         <ul className="list-inline mb-0">
                             <li className="list-inline-item">
@@ -53,8 +51,7 @@ const User = ({ user, admin }) => {
 
 
                         </ul>
-                    </td> : ""
-            }
+                    </td> 
         </tr >
     );
 };

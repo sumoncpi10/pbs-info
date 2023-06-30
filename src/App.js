@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -27,23 +27,14 @@ import Loading from './Pages/Shared/Loading';
 import { useEffect, useState } from 'react';
 import KWInfo from './Pages/InfoEntry/KWInfo';
 import BillImport from './Pages/Import/BillImport';
+import UserLogin from './Pages/Users/UserLogin';
+import SignUp from './Pages/Users/SignUp';
 
 
 
 function App() {
-  // const [u, setU] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(`https://pbsofficeinfosql.onrender.com/users`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       // console.log(data);
-  //       setU(data);
-  //     })
-  // }, []);
-  // if (!u) {
-  //   return <Loading></Loading>
-  // }
+  
+  
   return (
     <>
       <div className="page-wrapper bg-gra-02  font-poppins">
@@ -60,14 +51,16 @@ function App() {
           <Route path="/users" element={<RequireAuth><Users /></RequireAuth>}></Route>
           <Route path="/importBill" element={<RequireAuth><BillImport /></RequireAuth>}></Route>
           {/* <Route path="/users" element={<Users />}></Route> */}
-          <Route path="/books" element={<RequireAuth><Books></Books></RequireAuth>}></Route>
+         <Route path="/books" element={<RequireAuth><Books></Books></RequireAuth>}></Route>
           <Route path="/offices" element={<RequireAuth><Offices></Offices></RequireAuth>}></Route>
           <Route path="/addUser" element={<RequireAuth><AddUser /></RequireAuth>}></Route>
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>}></Route>
           <Route path="/posting/:id" element={<RequireAuth><Posting /></RequireAuth>}></Route>
           <Route path="/users/mybill" element={<MyBill />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<SignUP />}></Route>
+          {/* <Route path="/login" element={<Login />}></Route> */}
+          <Route path="/userLogin" element={<UserLogin />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          {/* <Route path="/signup" element={<SignUP />}></Route> */}
         </Routes>
         <Footer></Footer>
       </div >

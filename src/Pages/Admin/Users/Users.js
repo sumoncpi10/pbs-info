@@ -14,33 +14,42 @@ const Users = () => {
     const [luser, setLUser] = useState([]);
     const [users, setUsers] = useState([]);
     const [use] = useAuthState(auth);
-    const [admin] = useAdmin(use);
-    console.log(admin);
+    // const [admin] = useAdmin(use);
+    const [role, setRole] = useState('employee');
+    const [trg_id, settrg_id] = useState('');
+    const [phone, setPhone] = useState('');
+    const [displayName, setdisplayName] = useState('');
+    const [designation, setdesignation] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+//    const [smsAccountNumber, setsmsAccountNumber] = useState('');
+  const [message, setMessage] = useState('');
+    // console.log(admin);
     // console.log(use);
-    // useEffect(() => {
-    //     fetch(`https://pbsofficeinfosql.onrender.com/users`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             setUsers(data);
-    //         })
-    // }, []);
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/usersByzonal/${admin?.zonal_code}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/users`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log(data)
                 setUsers(data);
             })
-    }, [admin]);
-    useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${use?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                setLUser(data);
-            })
-    }, [use?.email]);
+    }, []);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/usersByzonal/${admin?.zonal_code}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             setUsers(data);
+    //         })
+    // }, [admin]);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/user/${use?.email}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data);
+    //             setLUser(data);
+    //         })
+    // }, [use?.email]);
     const ok = (e) => {
         e.preventDefault();
         (function ($) {
@@ -58,95 +67,135 @@ const Users = () => {
         })(window.jQuery);
     }
 
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || '/';
-    if (user) {
-        console.log(user);
-        navigate(from, { replace: true });
-        {
-            toast(`Registered User: ${user.user.email}`)
-        };
-    }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-    else if (error) {
-        return (
-            <div>
-                {
-                    toast(error?.message)
-                };
-            </div>
-        );
-    }
-    const createUser = async (e) => {
-        e.preventDefault();
-        const displayName = e.target.name.value;
-        const trg_id = e.target.trg_id.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const designation = e.target.designation.value;
-        const phone = e.target.phone.value;
-        const pbs_code = luser?.pbs_code;
-        const zonal_code = luser?.zonal_code;
-        const add_by = luser?.email;
-        const user = {
-            displayName, trg_id, email, password, designation, phone, pbs_code, zonal_code, add_by
-        };
+    // const [
+    //     createUserWithEmailAndPassword,
+        
+    //     loading,
+    //     error,
+    // ] = useCreateUserWithEmailAndPassword(auth);
+    const [user, setUser] = useState(null);
+    console.log(user?.role);
+    useEffect(() => {
+        // Check if a token exists in localStorage or sessionStorage
+        const storedUser = localStorage.getItem('user');
 
-        const newuser = await users?.find(user => user.trg_id == trg_id)
-        console.log(user)
-        console.log(newuser)
-        if (newuser) {
-            toast("User Already Exists !");
-            // navigate(from, { replace: true });
-        }
-        else if (luser && email && password) {
-            const rr = createUserWithEmailAndPassword(email, password);
-            if (rr) {
-                fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(user)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log('success', data);
-                        toast("User Create Successfully!");
-                        e.target.reset();
-                        // navigate(from, { replace: true });
-                    })
-            }
-        }
-        else if (luser && trg_id && password) {
+       const user = storedUser ? JSON.parse(storedUser) : null;
 
-            fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(user)
+        // Use the user data as needed
+        if (user) {
+        // Do something with the user data
+            setUser(user)
+            console.log(user.role);
+        }
+    }, []);
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    // let from = location.state?.from?.pathname || '/';
+    // if (user) {
+    //     console.log(user);
+    //     // navigate(from, { replace: true });
+    //     {
+    //         // toast(`Registered User: ${user.user.email}`)
+    //     };
+    // }
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
+    // else if (error) {
+    //     return (
+    //         <div>
+    //             {
+    //                 toast(error?.message)
+    //             };
+    //         </div>
+    //     );
+    // }
+    // const createUser = async (e) => {
+    //     e.preventDefault();
+    //     const displayName = e.target.name.value;
+    //     const trg_id = e.target.trg_id.value;
+    //     const email = e.target.email.value;
+    //     const password = e.target.password.value;
+    //     const designation = e.target.designation.value;
+    //     const phone = e.target.phone.value;
+    //     const pbs_code = luser?.pbs_code;
+    //     const zonal_code = luser?.zonal_code;
+    //     const add_by = luser?.email;
+    //     const user = {
+    //         displayName, trg_id, email, password, designation, phone, pbs_code, zonal_code, add_by
+    //     };
+
+    //     const newuser = await users?.find(user => user.trg_id == trg_id)
+    //     console.log(user)
+    //     console.log(newuser)
+    //     if (newuser) {
+    //         toast("User Already Exists !");
+    //         // navigate(from, { replace: true });
+    //     }
+    //     else if (luser && email && password) {
+    //         // const rr = createUserWithEmailAndPassword(email, password);
+    //         if (rr) {
+    //             fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(user)
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     // console.log('success', data);
+    //                     toast("User Create Successfully!");
+    //                     e.target.reset();
+    //                     // navigate(from, { replace: true });
+    //                 })
+    //         }
+    //     }
+    //     else if (luser && trg_id && password) {
+
+    //         fetch('https://pbsofficeinfosql.onrender.com/userAdd', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'content-type': 'application/json'
+    //             },
+    //             body: JSON.stringify(user)
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 // console.log('success', data);
+    //                 toast("User Create Successfully!");
+    //                 e.target.reset();
+    //                 // navigate(from, { replace: true });
+    //             })
+
+    //     }
+    // }
+ const handleSignup = () => {
+    const product = {
+            role,trg_id,phone,displayName,designation,email,password
+        };
+        console.log(product)
+    fetch('https://pbsofficeinfosql.onrender.com/signupEmp', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                
+                const { message } = data;
+                setMessage(message);
+                toast(message);
+                (function ($) {
+                    "use strict";
+                    $('[data-toggle="tooltip"]').tooltip()
+                    $('#exampleModalCenter').modal('hide')
+                })(window.jQuery);
             })
-                .then(res => res.json())
-                .then(data => {
-                    // console.log('success', data);
-                    toast("User Create Successfully!");
-                    e.target.reset();
-                    // navigate(from, { replace: true });
-                })
-
-        }
-    }
-
+   
+  };
     return (
         <div>
             <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -162,30 +211,51 @@ const Users = () => {
                             <div className="col-md">
                                 <div className="modal-body p-0">
                                     <h3 className="mb-4">Create New User</h3>
-                                    <form onSubmit={createUser} className="signup-form">
+                                    <div  className="signup-form">
                                         <div className="form-group">
-                                            <input name="name" type="text" className="form-control" placeholder="Name" required />
+                                            <input value={displayName}
+                                            onChange={(e) => setdisplayName(e.target.value)} type="text" className="form-control" placeholder="Full Name" required />
                                         </div>
                                         <div className="form-group">
-                                            <input name='trg_id' type="text" className="form-control" placeholder="Training ID" required />
+                                            {/* <input placeholder="Role"
+                                            value={role}
+                                            onChange={(e) => setRole(e.target.value)} type="text" className="form-control"  required /> */}
+                                            <select onChange={(e) => setRole(e.target.value)}  className="form-control" >
+                                                <option className='text-primary' value='employee'>Employee</option>
+                                                <option className='text-primary' value='officeHead'>Office Head</option>
+                                                {(user?.role=='pbsAdmin'||user?.role=='admin'||user?.role=='superAdmin')&&<option className='text-primary' value='zonalAdmin'>Zonal Admin</option>}
+                                                {(user?.role=='admin'||user?.role=='superAdmin')&& <option className='text-primary' value='pbsAdmin'>PBS Admin</option>}
+                                                {(user?.role=='superAdmin')&&  <option className='text-primary' value='admin'>Admin</option>}
+                                             </select>
+                                        </div>
+                                       
+                                        <div className="form-group">
+                                            <input value={trg_id}
+                                            onChange={(e) => settrg_id(e.target.value)} type="text" className="form-control" placeholder="Training ID" required />
                                         </div>
                                         <div className="form-group">
-                                            <input name='email' type="email" className="form-control" autoComplete="off" placeholder="Email address" />
+                                            <input value={phone}
+                                            onChange={(e) => setPhone(e.target.value)} type="number" className="form-control" placeholder="Phone" required />
+                                             <p className='text-warning mb-3'>{message}</p>
+                                        </div>
+                                         <div className="form-group">
+                                            <input value={designation}
+                                            onChange={(e) => setdesignation(e.target.value)} name='designation' type="text" className="form-control" placeholder="Designation" required />
                                         </div>
                                         <div className="form-group">
-                                            <input name='password' type="password" className="form-control" placeholder="Password" required />
+                                            <input value={email}
+                                            onChange={(e) => setEmail(e.target.value)}   type="email" className="form-control" autoComplete="off" placeholder="Email address" />
                                         </div>
                                         <div className="form-group">
-                                            <input name='designation' type="text" className="form-control" placeholder="Designation" required />
+                                            <input type="password" placeholder="Password" value={password}     onChange={(e) => setPassword(e.target.value)}  className="form-control"  required />
                                         </div>
+                                       
+                                        
                                         <div className="form-group">
-                                            <input name='phone' type="number" className="form-control" placeholder="Phone" required />
-                                        </div>
-                                        <div className="form-group">
-                                            <button type="submit" className="form-control btn btn-primary rounded submit px-3">Create</button>
+                                            <button onClick={handleSignup} type="button" className="form-control btn btn-primary rounded submit px-3">Create</button>
                                         </div>
 
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,14 +322,13 @@ const Users = () => {
                                             <th scope="col">Email</th>
 
                                             {
-                                                admin.designation == 'je-it' ? <th scope="col" style={{ "width": "200px" }}>Action</th> : ""
+                                                user?.role == 'admin' ? <th scope="col" style={{ "width": "200px" }}>Action</th> : ""
                                             }
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
-                                            (admin.designation == 'dgm' || admin.designation == 'gm' || admin.designation == 'admin.designation' || admin.designation == 'je-it' || admin.designation == 'aje-it' || admin.designation == 'agm-it') && users?.map(user => <User user={user} admin={admin
-                                            } key={user.id}></User>)
+                                            (user?.role == 'admin' ) && users?.map(u => <User user={u}  key={user.id}></User>)
                                         }
                                     </tbody>
                                 </table>
