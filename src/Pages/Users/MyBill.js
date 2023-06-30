@@ -28,14 +28,15 @@ const MyBill = () => {
                     </form >
                 </div >
 <div class="team-single mx-auto">
+    {
+    bill?
 <div class="row">
 <div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
 <div class="team-single-img">
 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt/>
 </div>
 
-{
-    bill?<div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center" style={{ fontFamily: 'SutonnyMJ' }}>
+<div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center" style={{ fontFamily: 'SutonnyMJ' }}>
         <h6 > এসএমএস হিসাব নং: {bill?.smsAccountNumber}</h6>
     <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600" style={{ fontFamily: 'SutonnyMJ' }}>নাম: {bill?.cName}</h4>
     <h5 style={{ fontFamily: 'SutonnyMJ' }}>পিতা/স্বামী:{bill?.fName}</h5>
@@ -44,8 +45,7 @@ const MyBill = () => {
     <ul class="no-margin">
     </ul>
     </div>
-    </div>:''
-}
+    </div>
 </div>
 <div class="col-lg-8 col-md-7">
 <div class="team-single-text padding-50px-left sm-no-padding-left">
@@ -203,7 +203,8 @@ const MyBill = () => {
 <div class="col-md-12">
 </div>
 </div>
-
+:''
+}
 </div>
               
             {/* <table class="table table-bordered">
