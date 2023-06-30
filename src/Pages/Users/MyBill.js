@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../fonts.css';
 
 const MyBill = () => {
     const [bill, setBill] = useState("");
@@ -33,10 +34,10 @@ const MyBill = () => {
 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt/>
 </div>
 
-<div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
+<div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center" style={{ fontFamily: 'SutonnyMJ' }}>
     <h6 > {bill?.smsAccountNumber}</h6>
-<h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600">{bill?.cName}</h4>
-<h5>{bill?.fName}</h5>
+<h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600" style={{ fontFamily: 'SutonnyMJ' }}>{bill?.cName}</h4>
+<h5 style={{ fontFamily: 'SutonnyMJ' }}>{bill?.fName}</h5>
 <p class="sm-width-95 sm-margin-auto">{bill?.cAddress}</p>
 <div class="margin-20px-top team-single-icons">
 <ul class="no-margin">
