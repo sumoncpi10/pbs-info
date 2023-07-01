@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../Reports/DNPReports.css';
-import { format, parse } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+
 import 'react-day-picker/dist/style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+
 
 const Home = () => {
     const [collectionInfo, setCollectionInfo] = useState([]);
-    const [users, SetUsers] = useState([]);
-    const [cdate, setCDate] = useState(new Date());
+
     const [NumOfCashCollection, setNumOfCashCollection] = useState(0);
     const [AmountOfCashCollection, setAmountOfCashCollection] = useState(0);
     const [NumOfOtherCollection, setNumOfOtherCollection] = useState(0);

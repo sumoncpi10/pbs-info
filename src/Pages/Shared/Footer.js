@@ -82,7 +82,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="footer-bottom-content d-flex">
-                                <p className="mx-auto" >© 2022 PBS Office Information. Made with <i className="fa fa-heart"></i> by <a target="_blank"
+                                <p className="mx-auto" >© 2023 PBS Office Information. Made with <i className="fa fa-heart"></i> by <a target="_blank"
                                     className='text-white' href="#">Md. Daduggaman Sumon, JE(IT), Chittagong PBS-2</a></p>
                                 {/* <div className="payment">
                                     <Link to="/"><img src="assets/img/logo-light.webp" width="192" height="21"
