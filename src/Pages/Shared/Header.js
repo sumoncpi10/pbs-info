@@ -12,14 +12,14 @@ const Header = () => {
     // const [user, loading, error] = useAuthState(auth);
     useEffect(() => {
     // Check if a token exists in localStorage or sessionStorage
-   const storedToken = localStorage.getItem('token');
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+        const storedToken = localStorage.getItem('token');
+            const storedUser = JSON.parse(localStorage.getItem('user'));
 
-    if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(storedUser);
-    }
-  }, [localStorage.getItem('token')]);
+            if (storedToken && storedUser) {
+                setToken(storedToken);
+                setUser(storedUser);
+            }
+    }, [localStorage.getItem('token')]);
     // console.log(user);
     // const logout = () => {
     //     signOut(auth);
@@ -45,45 +45,68 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Info Entry
-                            </Link>
-                            <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="/dnp-info">DNP Information</Link></li>
-                                <li><Link className="dropdown-item" to="/kw-info">KWH Information</Link></li>
-                                {/* <li><Link className="dropdown-item" to="/">Another action</Link></li> */}
-                                {/* <li><hr className="dropdown-divider" /></li> */}
-                                {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Report
-                            </Link>
-                            <ul className="dropdown-menu">
+                        {
+                                (user?.role == 'employee'||user?.role == 'officeHead'||user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
+                        
+                        <>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Info Entry
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to="/dnp-info">DNP Information</Link></li>
+                                    {/* <li><Link className="dropdown-item" to="/kw-info">KWH Information</Link></li> */}
+                                    {/* <li><Link className="dropdown-item" to="/">Another action</Link></li> */}
+                                    {/* <li><hr className="dropdown-divider" /></li> */}
+                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                </ul>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Report
+                                </Link>
+                                <ul className="dropdown-menu">
 
-                                <li><Link className="dropdown-item" to="/collection-info-report">আদায়ের তথ্য</Link></li>
-                                <li><Link className="dropdown-item" to="/kw-sales-info-report">বিক্রয় কিলোয়াট</Link></li>
-                                {/* <li><Link className="dropdown-item" to="/dnp-info-report">বকেয়ার তথ্য</Link></li> */}
-                                {/* <li><hr className="dropdown-divider" /></li> */}
-                                {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </Link>
-                            <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="/books">Manage Books</Link></li>
-                                <li><Link className="dropdown-item" to="/users">Manage Users</Link></li>
-                                <li><Link className="dropdown-item" to="/importBill">Import Data</Link></li>
-                                {/* <li><Link className="dropdown-item" to="/posting">Manage Posting</Link></li> */}
-                                {/* <li><Link className="dropdown-item" to="/offices">Manage Office</Link></li> */}
-                                {/* <li><hr className="dropdown-divider" /></li> */}
-                                {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                            </ul>
-                        </li>
+                                    <li><Link className="dropdown-item" to="/collection-info-report">আদায়ের তথ্য</Link></li>
+                                    <li><Link className="dropdown-item" to="/kw-sales-info-report">বিক্রয় কিলোয়াট</Link></li>
+                                    {/* <li><Link className="dropdown-item" to="/dnp-info-report">বকেয়ার তথ্য</Link></li> */}
+                                    {/* <li><hr className="dropdown-divider" /></li> */}
+                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                </ul>
+                            </li>
+                        </>
+                        :""
+                        }
+                        {
+                            (user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Import
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    
+                                    <li><Link className="dropdown-item" to="/importBill">Import Bill</Link></li>
+                                    <li><Link className="dropdown-item" to="/importConsumer">Import Consumer</Link></li>
+                                    
+                                </ul>
+                            </li>:""
+                        }
+                        {
+                            (user?.role == 'officeHead'||user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to="/books">Manage Books</Link></li>
+                                    <li><Link className="dropdown-item" to="/users">Manage Users</Link></li>
+                                    {/* <li><Link className="dropdown-item" to="/posting">Manage Posting</Link></li> */}
+                                    {/* <li><Link className="dropdown-item" to="/offices">Manage Office</Link></li> */}
+                                    {/* <li><hr className="dropdown-divider" /></li> */}
+                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                </ul>
+                            </li>:""
+                        }
                         <li className="nav-item">
                             {/* <Link className="nav-link disabled">Disabled</Link> */}
                         </li>

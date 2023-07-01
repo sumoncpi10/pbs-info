@@ -135,7 +135,7 @@ const Login = ({ setuserV }) => {
                                                 Forgot Password?
                                             </button>
                                         </div>
-                                        <div class="">
+                                        <div className="">
                                             {/* <a href="#"></a>  */}
                                             {/* <Link to="/signup">Sign Up</Link> */}
                                         </div>

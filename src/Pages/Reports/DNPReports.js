@@ -13,59 +13,59 @@ const DNPReports = () => {
     }, []);
     return (
         <div>
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+            <div className="container">
+                <div className="row align-items-center">
+                    <div className="col-md-6">
+                        <div className="mb-3">
+                            <h5 className="card-title">Contact List <span className="text-muted fw-normal ms-2">(834)</span></h5>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                    <div className="col-md-6">
+                        <div className="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
                             <div>
-                                <ul class="nav nav-pills">
-                                    <li class="nav-item">
+                                <ul className="nav nav-pills">
+                                    <li className="nav-item">
                                         <a
                                             aria-current="page"
                                             href="#"
-                                            class="router-link-active router-link-exact-active nav-link active"
+                                            className="router-link-active router-link-exact-active nav-link active"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             title=""
                                             data-bs-original-title="List"
                                             aria-label="List"
                                         >
-                                            <i class="bx bx-list-ul"></i>
+                                            <i className="bx bx-list-ul"></i>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Grid" aria-label="Grid"><i class="bx bx-grid-alt"></i></a>
+                                    <li className="nav-item">
+                                        <a href="#" className="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Grid" aria-label="Grid"><i className="bx bx-grid-alt"></i></a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <a href="#" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i> Add New</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target=".add-new" className="btn btn-primary"><i className="bx bx-plus me-1"></i> Add New</a>
                             </div>
-                            <div class="dropdown">
-                                <a class="btn btn-link text-muted py-1 font-size-16 shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-horizontal-rounded"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <div className="dropdown">
+                                <a className="btn btn-link text-muted py-1 font-size-16 shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="bx bx-dots-horizontal-rounded"></i></a>
+                                <ul className="dropdown-menu dropdown-menu-end">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="">
-                            <div class="table-responsive">
-                                <table class="table project-list-table table-nowrap align-middle table-borderless">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="">
+                            <div className="table-responsive">
+                                <table className="table project-list-table table-nowrap align-middle table-borderless">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="ps-4" style={{ "width": "50px" }}>
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck" /><label class="form-check-label" htmlFor="contacusercheck"></label></div>
+                                            <th scope="col" className="ps-4" style={{ "width": "50px" }}>
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck" /><label className="form-check-label" htmlFor="contacusercheck"></label></div>
                                             </th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Position</th>
@@ -76,233 +76,233 @@ const DNPReports = () => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck1" /><label class="form-check-label" htmlFor="contacusercheck1"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck1" /><label className="form-check-label" htmlFor="contacusercheck1"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Simon Ryles</a></td>
-                                            <td><span class="badge badge-soft-success mb-0">Full Stack Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Simon Ryles</a></td>
+                                            <td><span className="badge badge-soft-success mb-0">Full Stack Developer</span></td>
                                             <td>SimonRyles@minible.com</td>
                                             <td>125</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck2" /><label class="form-check-label" htmlFor="contacusercheck2"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck2" /><label className="form-check-label" htmlFor="contacusercheck2"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Marion Walker</a></td>
-                                            <td><span class="badge badge-soft-info mb-0">Frontend Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Marion Walker</a></td>
+                                            <td><span className="badge badge-soft-info mb-0">Frontend Developer</span></td>
                                             <td>MarionWalker@minible.com</td>
                                             <td>132</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck3" /><label class="form-check-label" htmlFor="contacusercheck3"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck3" /><label className="form-check-label" htmlFor="contacusercheck3"></label></div>
                                             </th>
                                             <td>
-                                                <div class="avatar-sm d-inline-block me-2">
-                                                    <div class="avatar-title bg-soft-primary rounded-circle text-primary"><i class="mdi mdi-account-circle m-0"></i></div>
+                                                <div className="avatar-sm d-inline-block me-2">
+                                                    <div className="avatar-title bg-soft-primary rounded-circle text-primary"><i className="mdi mdi-account-circle m-0"></i></div>
                                                 </div>
-                                                <a href="#" class="text-body">Frederick White</a>
+                                                <a href="#" className="text-body">Frederick White</a>
                                             </td>
-                                            <td><span class="badge badge-soft-danger mb-0">UI/UX Designer</span></td>
+                                            <td><span className="badge badge-soft-danger mb-0">UI/UX Designer</span></td>
                                             <td>FrederickWhite@minible.com</td>
                                             <td>112</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck4" /><label class="form-check-label" htmlFor="contacusercheck4"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck4" /><label className="form-check-label" htmlFor="contacusercheck4"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Shanon Marvin</a></td>
-                                            <td><span class="badge badge-soft-primary mb-0">Backend Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Shanon Marvin</a></td>
+                                            <td><span className="badge badge-soft-primary mb-0">Backend Developer</span></td>
                                             <td>ShanonMarvin@minible.com</td>
                                             <td>121</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck5" /><label class="form-check-label" htmlFor="contacusercheck5"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck5" /><label className="form-check-label" htmlFor="contacusercheck5"></label></div>
                                             </th>
                                             <td>
-                                                <div class="avatar-sm d-inline-block me-2">
-                                                    <div class="avatar-title bg-soft-primary rounded-circle text-primary"><i class="mdi mdi-account-circle m-0"></i></div>
+                                                <div className="avatar-sm d-inline-block me-2">
+                                                    <div className="avatar-title bg-soft-primary rounded-circle text-primary"><i className="mdi mdi-account-circle m-0"></i></div>
                                                 </div>
-                                                <a href="#" class="text-body">Mark Jones</a>
+                                                <a href="#" className="text-body">Mark Jones</a>
                                             </td>
-                                            <td><span class="badge badge-soft-info mb-0">Frontend Developer</span></td>
+                                            <td><span className="badge badge-soft-info mb-0">Frontend Developer</span></td>
                                             <td>MarkJones@minible.com</td>
                                             <td>145</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Remove</a></div>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end"><a className="dropdown-item" href="#">Edit</a><a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Remove</a></div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck6" /><label class="form-check-label" htmlFor="contacusercheck6"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck6" /><label className="form-check-label" htmlFor="contacusercheck6"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Janice Morgan</a></td>
-                                            <td><span class="badge badge-soft-primary mb-0">Backend Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Janice Morgan</a></td>
+                                            <td><span className="badge badge-soft-primary mb-0">Backend Developer</span></td>
                                             <td>JaniceMorgan@minible.com</td>
                                             <td>136</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck7" /><label class="form-check-label" htmlFor="contacusercheck7"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck7" /><label className="form-check-label" htmlFor="contacusercheck7"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Patrick Petty</a></td>
-                                            <td><span class="badge badge-soft-danger mb-0">UI/UX Designer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Patrick Petty</a></td>
+                                            <td><span className="badge badge-soft-danger mb-0">UI/UX Designer</span></td>
                                             <td>PatrickPetty@minible.com</td>
                                             <td>125</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck8" /><label class="form-check-label" htmlFor="contacusercheck8"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck8" /><label className="form-check-label" htmlFor="contacusercheck8"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Marilyn Horton</a></td>
-                                            <td><span class="badge badge-soft-primary mb-0">Backend Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Marilyn Horton</a></td>
+                                            <td><span className="badge badge-soft-primary mb-0">Backend Developer</span></td>
                                             <td>MarilynHorton@minible.com</td>
                                             <td>154</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="ps-4">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input" id="contacusercheck9" /><label class="form-check-label" htmlFor="contacusercheck9"></label></div>
+                                            <th scope="row" className="ps-4">
+                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck9" /><label className="form-check-label" htmlFor="contacusercheck9"></label></div>
                                             </th>
-                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Neal Womack</a></td>
-                                            <td><span class="badge badge-soft-success mb-0">Full Stack Developer</span></td>
+                                            <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" className="avatar-sm rounded-circle me-2" /><a href="#" className="text-body">Neal Womack</a></td>
+                                            <td><span className="badge badge-soft-success mb-0">Full Stack Developer</span></td>
                                             <td>NealWomack@minible.com</td>
                                             <td>231</td>
                                             <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                                <ul className="list-inline mb-0">
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" className="px-2 text-primary"><i className="bx bx-pencil font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                                    <li className="list-inline-item">
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" className="px-2 text-danger"><i className="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                                    <li className="list-inline-item dropdown">
+                                                        <a className="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i className="bx bx-dots-vertical-rounded"></i></a>
+                                                        <div className="dropdown-menu dropdown-menu-end">
+                                                            <a className="dropdown-item" href="#">Action</a><a className="dropdown-item" href="#">Another action</a><a className="dropdown-item" href="#">Something else here</a>
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -314,23 +314,23 @@ const DNPReports = () => {
                         </div>
                     </div>
                 </div>
-                <div class="row g-0 align-items-center pb-4">
-                    <div class="col-sm-6">
-                        <div><p class="mb-sm-0">Showing 1 to 10 of 57 entries</p></div>
+                <div className="row g-0 align-items-center pb-4">
+                    <div className="col-sm-6">
+                        <div><p className="mb-sm-0">Showing 1 to 10 of 57 entries</p></div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="float-sm-end">
-                            <ul class="pagination mb-sm-0">
-                                <li class="page-item disabled">
-                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                    <div className="col-sm-6">
+                        <div className="float-sm-end">
+                            <ul className="pagination mb-sm-0">
+                                <li className="page-item disabled">
+                                    <a href="#" className="page-link"><i className="mdi mdi-chevron-left"></i></a>
                                 </li>
-                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                <li className="page-item active"><a href="#" className="page-link">1</a></li>
+                                <li className="page-item"><a href="#" className="page-link">2</a></li>
+                                <li className="page-item"><a href="#" className="page-link">3</a></li>
+                                <li className="page-item"><a href="#" className="page-link">4</a></li>
+                                <li className="page-item"><a href="#" className="page-link">5</a></li>
+                                <li className="page-item">
+                                    <a href="#" className="page-link"><i className="mdi mdi-chevron-right"></i></a>
                                 </li>
                             </ul>
                         </div>

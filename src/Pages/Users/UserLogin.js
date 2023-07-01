@@ -107,21 +107,12 @@ function UserLogin() {
 
                                     <div className="form-group d-flex justify-content-between">
                                         <div className="">
-                                            <button className="checkbox-wrap checkbox-primary"
-                                                // onClick={async () => {
-                                                //     const success = await sendPasswordResetEmail(email, actionCodeSettings
-                                                //     );
-                                                //     if (success) {
-                                                //         toast('Go to Your Gmail to get Password Reset Link');
-                                                //     }
-                                                // }}
-                                            >
-                                                Forgot Password?
-                                            </button>
+                                            <Link to="/forgotPassword">Forgot Password?</Link>
                                         </div>
-                                        <div class="">
+                                        <div className="">
                                             {/* <a href="#"></a>  */}
                                             <Link to="/signup">Sign Up</Link>
+                                            
                                         </div>
                                     </div>
                                     <div className="form-group">

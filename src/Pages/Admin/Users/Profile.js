@@ -27,24 +27,43 @@ const Profile = () => {
         }
     })(window.jQuery);
 
-    const [user, loading, error] = useAuthState(auth);
-    const [admin] = useAdmin(user);
+    // const [user, loading, error] = useAuthState(auth);
+    // const [admin] = useAdmin(user);
+    const [user, setUser] = useState(null);
     const [book, setBook] = useState([]);
     const [users, SetUsers] = useState([]);
     const [luser, setLUser] = useState([]);
     const [displayName, setdisplayName] = useState('');
     const [designation, setdesignation] = useState('');
     const [officeInfo, setofficeInfo] = useState([]);
-    console.log(admin);
-    console.log(user.email);
-    useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
+    // console.log(admin);
+    // console.log(user.email);
+     useEffect(() => {
+        // Check if a token exists in localStorage or sessionStorage
+        const storedUser = localStorage.getItem('user');
+
+       const user = storedUser ? JSON.parse(storedUser) : null;
+
+        // Use the user data as needed
+        if (user) {
+        // Do something with the user data
+            setUser(user);
+              fetch(`http://localhost:5000/user/${user?.phone}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 SetUsers(data[0]);
             })
-    }, [user.email]);
+        }
+    }, []);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.phone}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             SetUsers(data[0]);
+    //         })
+    // }, [user?.phone]);
 
 
     const btnSearch = (e) => {
@@ -96,10 +115,10 @@ const Profile = () => {
         SetUsers(newProduct);
         setdisplayName(e.target.value)
     }
-    const empPhoneChange = (e) => {
-        const { phone, ...rest } = users;
+    const empEmailChange = (e) => {
+        const { email, ...rest } = users;
         const newBrand = e.target.value;
-        const newProduct = { phone: newBrand, ...rest };
+        const newProduct = { email: newBrand, ...rest };
         SetUsers(newProduct);
     }
     const photoURLChange = (e) => {
@@ -108,13 +127,13 @@ const Profile = () => {
         const newProduct = { photoURL: newBrand, ...rest };
         SetUsers(newProduct);
     }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
     let disabled = true;
-    if (admin?.designation == "agm-it" || admin?.designation == "je-it" || admin?.designation == "aje-it" || admin?.designation == "dgm" || admin?.designation == "gm") {
-        disabled = false;
-    }
+    // if (user?.role == 'superAdmin' || user?.role == 'admin' || user?.role == 'pbsAdmin' || user?.role == 'zonalAdmin'  ) {
+    //     disabled = false;
+    // }
     return (
         <div className="wrapper wrapper--w680">
             <div className="card card-4">
@@ -215,13 +234,13 @@ const Profile = () => {
                             <div className="col-2">
                                 <div className="input-group">
                                     <label className="label">ইমেইল</label>
-                                    <input name='email' className="input--style-4" type="email" value={users?.email ? users?.email : user?.email} disabled />
+                                    <input onChange={empEmailChange}  name='email' className="input--style-4" type="email" value={users?.email}  />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="input-group">
                                     <label className="label">মোবাইল</label>
-                                    <input onChange={empPhoneChange} name='phone' className="input--style-4" type="text" value={users?.phone} />
+                                    <input name='phone' className="input--style-4" type="text" value={users?.phone} disabled/>
                                 </div>
                             </div>
                         </div>

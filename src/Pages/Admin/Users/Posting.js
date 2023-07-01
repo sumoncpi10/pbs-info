@@ -27,8 +27,9 @@ const Posting = () => {
             console.log(err);
         }
     })(window.jQuery);
+    const [user, setUser] = useState(null);
     const { id } = useParams();
-    const [user, loading, error] = useAuthState(auth);
+    // const [user, loading, error] = useAuthState(auth);
     const [admin] = useAdmin(user);
     const [book, setBook] = useState([]);
     const [displayName, setdisplayName] = useState('');
@@ -42,17 +43,23 @@ const Posting = () => {
     const [luser, SetlUser] = useState([]);
     // const [user, SetUser] = useState([]);
     // console.log(user)
-
     useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/zonals/${pbs_code}`)
-            .then(res => res.json())
-            .then(data => {
+        // Check if a token exists in localStorage or sessionStorage
+        const storedUser = localStorage.getItem('user');
+
+       const user = storedUser ? JSON.parse(storedUser) : null;
+
+        // Use the user data as needed
+        if (user) {
+        // Do something with the user data
+            setUser(user);
+            fetch(`https://pbsofficeinfosql.onrender.com/zonals/${user?.pbs_code}`)
+                .then(res => res.json())
+                .then(data => {
                 setZonals(data);
                 console.log(data);
             })
-    }, [pbs_code]);
-    useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/ccs/${zonal_code}`)
+            fetch(`https://pbsofficeinfosql.onrender.com/ccs/${user?.zonal_code}`)
             .then(res => res.json())
             .then(data => {
                 setCcs(data);
@@ -60,17 +67,36 @@ const Posting = () => {
                 console.log(zonal_code);
                 console.log(pbs_code);
             })
-    }, [zonal_code]);
-    useEffect(() => {
-        fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setPbsCode(data[0].pbs_code);
-                // SetlUser(data[0]);
+        }
+    }, []);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/zonals/${user?.pbs_code}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setZonals(data);
+    //             console.log(data);
+    //         })
+    // }, [user?.pbs_code]);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/ccs/${user?.zonal_code}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setCcs(data);
+    //             console.log(data);
+    //             console.log(zonal_code);
+    //             console.log(pbs_code);
+    //         })
+    // }, [user?.zonal_code]);
+    // useEffect(() => {
+    //     fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             setPbsCode(data[0].pbs_code);
+    //             // SetlUser(data[0]);
 
-            })
-    }, [user.email]);
+    //         })
+    // }, [user.email]);
     useEffect(() => {
         fetch(`https://pbsofficeinfosql.onrender.com/userId/${id}`)
             .then(res => res.json())
@@ -80,7 +106,7 @@ const Posting = () => {
                 SetlUser(data[0]);
 
             })
-    }, [user.email]);
+    }, [user?.email]);
     // useEffect(() => {
     //     fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.email}`)
     //         .then(res => res.json())
@@ -167,11 +193,11 @@ const Posting = () => {
         const newProduct = { trg_id: newBrand, ...rest };
         SetlUser(newProduct);
     }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
     let disabled = true;
-    if (admin?.designation == "agm-it" || admin?.designation == "aje" || admin?.designation == "je-it" || admin?.designation == "aje-it" || admin?.designation == "dgm" || admin?.designation == "gm") {
+    if (user?.role == 'pbsAdmin'||user?.role == 'admin') {
         disabled = false;
     }
     return (

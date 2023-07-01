@@ -328,7 +328,7 @@ const Users = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            (user?.role == 'admin' ) && users?.map(u => <User user={u}  key={user.id}></User>)
+                                            (user?.role == 'admin' ) && users?.map(u => <User auser={user} user={u}  key={user.id}></User>)
                                         }
                                     </tbody>
                                 </table>

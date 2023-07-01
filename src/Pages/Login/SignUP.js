@@ -148,7 +148,7 @@ const SignUP = ({ setuserV }) => {
                                                 Forgot Password?
                                             </button>
                                         </div>
-                                        <div class="">
+                                        <div className="">
                                             <Link to="/login">Login</Link>
                                         </div>
                                     </div>
