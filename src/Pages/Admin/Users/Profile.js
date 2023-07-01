@@ -48,7 +48,7 @@ const Profile = () => {
         if (user) {
         // Do something with the user data
             setUser(user);
-              fetch(`http://localhost:5000/user/${user?.phone}`)
+              fetch(`https://pbsofficeinfosql.onrender.com/user/${user?.phone}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
