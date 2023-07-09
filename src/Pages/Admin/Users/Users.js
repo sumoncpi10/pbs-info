@@ -22,8 +22,8 @@ const Users = () => {
     const [designation, setdesignation] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-//    const [smsAccountNumber, setsmsAccountNumber] = useState('');
-  const [message, setMessage] = useState('');
+    //    const [smsAccountNumber, setsmsAccountNumber] = useState('');
+    const [message, setMessage] = useState('');
     // console.log(admin);
     // console.log(use);
     useEffect(() => {
@@ -69,7 +69,7 @@ const Users = () => {
 
     // const [
     //     createUserWithEmailAndPassword,
-        
+
     //     loading,
     //     error,
     // ] = useCreateUserWithEmailAndPassword(auth);
@@ -79,11 +79,11 @@ const Users = () => {
         // Check if a token exists in localStorage or sessionStorage
         const storedUser = localStorage.getItem('user');
 
-       const user = storedUser ? JSON.parse(storedUser) : null;
+        const user = storedUser ? JSON.parse(storedUser) : null;
 
         // Use the user data as needed
         if (user) {
-        // Do something with the user data
+            // Do something with the user data
             setUser(user)
             console.log(user.role);
         }
@@ -170,12 +170,12 @@ const Users = () => {
 
     //     }
     // }
- const handleSignup = () => {
-    const product = {
-            role,trg_id,phone,displayName,designation,email,password
+    const handleSignup = () => {
+        const product = {
+            role, trg_id, phone, displayName, designation, email, password
         };
         console.log(product)
-    fetch('https://pbsofficeinfosql.onrender.com/signupEmp', {
+        fetch('https://pbsofficeinfosql.onrender.com/signupEmp', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -184,7 +184,7 @@ const Users = () => {
         })
             .then(res => res.json())
             .then(data => {
-                
+
                 const { message } = data;
                 setMessage(message);
                 toast(message);
@@ -194,8 +194,8 @@ const Users = () => {
                     $('#exampleModalCenter').modal('hide')
                 })(window.jQuery);
             })
-   
-  };
+
+    };
     return (
         <div>
             <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -211,46 +211,46 @@ const Users = () => {
                             <div className="col-md">
                                 <div className="modal-body p-0">
                                     <h3 className="mb-4">Create New User</h3>
-                                    <div  className="signup-form">
+                                    <div className="signup-form">
                                         <div className="form-group">
                                             <input value={displayName}
-                                            onChange={(e) => setdisplayName(e.target.value)} type="text" className="form-control" placeholder="Full Name" required />
+                                                onChange={(e) => setdisplayName(e.target.value)} type="text" className="form-control" placeholder="Full Name" required />
                                         </div>
                                         <div className="form-group">
                                             {/* <input placeholder="Role"
                                             value={role}
                                             onChange={(e) => setRole(e.target.value)} type="text" className="form-control"  required /> */}
-                                            <select onChange={(e) => setRole(e.target.value)}  className="form-control" >
+                                            <select onChange={(e) => setRole(e.target.value)} className="form-control" >
                                                 <option className='text-primary' value='employee'>Employee</option>
                                                 <option className='text-primary' value='officeHead'>Office Head</option>
-                                                {(user?.role=='pbsAdmin'||user?.role=='admin'||user?.role=='superAdmin')&&<option className='text-primary' value='zonalAdmin'>Zonal Admin</option>}
-                                                {(user?.role=='admin'||user?.role=='superAdmin')&& <option className='text-primary' value='pbsAdmin'>PBS Admin</option>}
-                                                {(user?.role=='superAdmin')&&  <option className='text-primary' value='admin'>Admin</option>}
-                                             </select>
+                                                {(user?.role == 'pbsAdmin' || user?.role == 'admin' || user?.role == 'superAdmin') && <option className='text-primary' value='zonalAdmin'>Zonal Admin</option>}
+                                                {(user?.role == 'admin' || user?.role == 'superAdmin') && <option className='text-primary' value='pbsAdmin'>PBS Admin</option>}
+                                                {(user?.role == 'superAdmin') && <option className='text-primary' value='admin'>Admin</option>}
+                                            </select>
                                         </div>
-                                       
+
                                         <div className="form-group">
                                             <input value={trg_id}
-                                            onChange={(e) => settrg_id(e.target.value)} type="text" className="form-control" placeholder="Training ID" required />
+                                                onChange={(e) => settrg_id(e.target.value)} type="text" className="form-control" placeholder="Training ID" required />
                                         </div>
                                         <div className="form-group">
                                             <input value={phone}
-                                            onChange={(e) => setPhone(e.target.value)} type="number" className="form-control" placeholder="Phone" required />
-                                             <p className='text-warning mb-3'>{message}</p>
+                                                onChange={(e) => setPhone(e.target.value)} type="number" className="form-control" placeholder="Phone" required />
+                                            <p className='text-warning mb-3'>{message}</p>
                                         </div>
-                                         <div className="form-group">
+                                        <div className="form-group">
                                             <input value={designation}
-                                            onChange={(e) => setdesignation(e.target.value)} name='designation' type="text" className="form-control" placeholder="Designation" required />
+                                                onChange={(e) => setdesignation(e.target.value)} name='designation' type="text" className="form-control" placeholder="Designation" required />
                                         </div>
                                         <div className="form-group">
                                             <input value={email}
-                                            onChange={(e) => setEmail(e.target.value)}   type="email" className="form-control" autoComplete="off" placeholder="Email address" />
+                                                onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" autoComplete="off" placeholder="Email address" />
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" placeholder="Password" value={password}     onChange={(e) => setPassword(e.target.value)}  className="form-control"  required />
+                                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" required />
                                         </div>
-                                       
-                                        
+
+
                                         <div className="form-group">
                                             <button onClick={handleSignup} type="button" className="form-control btn btn-primary rounded submit px-3">Create</button>
                                         </div>
@@ -328,7 +328,7 @@ const Users = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            (user?.role == 'admin' ) && users?.map(u => <User auser={user} user={u}  key={user.id}></User>)
+                                            (user?.role == 'admin' || user?.role == 'pbsAdmin' || user?.role == 'zonalAdmin' || user?.role == 'officeHead') && users?.map(u => <User auser={user} user={u} key={user.id}></User>)
                                         }
                                     </tbody>
                                 </table>

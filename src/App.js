@@ -39,14 +39,14 @@ function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     // Check if a token exists in localStorage or sessionStorage
-        const storedToken = localStorage.getItem('token');
-            const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedToken = localStorage.getItem('token');
+    const storedUser = JSON.parse(localStorage.getItem('user'));
 
-            if (storedToken && storedUser) {
-                setToken(storedToken);
-                setUser(storedUser);
-            }
-    }, [localStorage.getItem('token')]);
+    if (storedToken && storedUser) {
+      setToken(storedToken);
+      setUser(storedUser);
+    }
+  }, [localStorage.getItem('token')]);
   return (
     <>
       <div className="page-wrapper bg-gra-02  font-poppins">
@@ -61,15 +61,15 @@ function App() {
           <Route path="/kw-sales-info-report" element={<RequireAuth><KWReport /></RequireAuth>}></Route>
           <Route path="/dnp-info-report" element={<RequireAuth><DNPReports /></RequireAuth>}></Route>
           {
-              (user?.role == 'officeHead'||user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ? <>
+            (user?.role == 'officeHead' || user?.role == 'zonalAdmin' || user?.role == 'pbsAdmin' || user?.role == 'admin') ? <>
               <Route path="/users" element={<RequireAuth><Users /></RequireAuth>}></Route>
               <Route path="/books" element={<RequireAuth><Books></Books></RequireAuth>}></Route>
-              </>:""
+            </> : ""
           }
           <Route path="/importBill" element={<RequireAuth><BillImport /></RequireAuth>}></Route>
           <Route path="/importConsumer" element={<RequireAuth><ConsumerImport /></RequireAuth>}></Route>
           {/* <Route path="/users" element={<Users />}></Route> */}
-         
+
           <Route path="/offices" element={<RequireAuth><Offices></Offices></RequireAuth>}></Route>
           <Route path="/addUser" element={<RequireAuth><AddUser /></RequireAuth>}></Route>
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>}></Route>
