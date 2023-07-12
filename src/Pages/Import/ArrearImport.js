@@ -28,7 +28,7 @@ const ArrearImport = () => {
     }
     const handleImportBill = (e) => {
         e.preventDefault();
-        fetch('https://pbsofficeinfosql.onrender.comimport-csv-arrear', {
+        fetch('https://pbsofficeinfosql.onrender.com/import-csv-arrear', {
             method: 'POST',
             // limits:{fileSize: '1gb'},
             headers: {
