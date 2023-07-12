@@ -1,4 +1,4 @@
-
+import {QueryClientProvider,QueryClient} from 'react-query'
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -39,6 +39,7 @@ import ArrearImport from './Pages/Import/ArrearImport';
 function App() {
   const [token, setToken] = useState('');
   const [user, setUser] = useState(null);
+  const queryClient=new QueryClient();
   useEffect(() => {
     // Check if a token exists in localStorage or sessionStorage
     const storedToken = localStorage.getItem('token');
@@ -51,6 +52,7 @@ function App() {
   }, [localStorage.getItem('token')]);
   return (
     <>
+    <QueryClientProvider client={queryClient}>      
       <div className="page-wrapper bg-gra-02  font-poppins">
         <Header></Header>
         <Routes>
@@ -88,6 +90,8 @@ function App() {
         <Footer></Footer>
       </div >
       <ToastContainer />
+      </QueryClientProvider>
+
     </>
   );
 }
