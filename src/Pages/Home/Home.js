@@ -10,7 +10,7 @@ const Home = () => {
   const [NumOfCashCollection, setNumOfCashCollection] = useState(0);
   const [AmountOfCashCollection, setAmountOfCashCollection] = useState(0);
   const [NumOfOtherCollection, setNumOfOtherCollection] = useState(0);
-  const [AmountOfOtherCollection, setAmountOfOtherCollection] = useState(0);
+  const [AmmountOfOtherCollection, setAmountOfOtherCollection] = useState(0);
   const [NumOfDC, setNumOfDC] = useState(0);
   const [AmountOfDC, setAmountOfDC] = useState(0);
 
@@ -18,6 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       setCollectionInfo(data);
       totalAdd(data);
     }
@@ -35,9 +36,9 @@ const Home = () => {
       NumOfCashCollectionadd += parseInt(e[i].NumOfCashCollection);
       AmountOfCashCollectionadd += parseInt(e[i].AmountOfCashCollection);
       NumOfOtherCollectionadd += parseInt(e[i].NumOfOtherCollection);
-      AmountOfOtherCollectionadd += parseInt(e[i].AmountOfOtherCollection);
+      AmountOfOtherCollectionadd += parseInt(e[i].AmmountOfOtherCollection);
       NumOfDCadd += parseInt(e[i].NumOfDC);
-      AmountOfDCadd += parseInt(e[i].AmountOfDC);
+      AmountOfDCadd += parseInt(e[i].AmmountOfDC);
     }
 
     setNumOfCashCollection(NumOfCashCollectionadd);
@@ -110,9 +111,9 @@ const Home = () => {
                         <td>{collection.NumOfCashCollection}</td>
                         <td>{collection.AmountOfCashCollection}</td>
                         <td>{collection.NumOfOtherCollection}</td>
-                        <td>{collection.AmountOfOtherCollection}</td>
+                        <td>{collection.AmmountOfOtherCollection}</td>
                         <td>{collection.NumOfDC}</td>
-                        <td>{collection.AmountOfDC}</td>
+                        <td>{collection.AmmountOfDC}</td>
                         <td>{collection.displayName}</td>
                       </tr>
                     ))}
@@ -128,7 +129,7 @@ const Home = () => {
                       <td>{NumOfCashCollection || ""}</td>
                       <td>{AmountOfCashCollection || ""}</td>
                       <td>{NumOfOtherCollection || ""}</td>
-                      <td>{AmountOfOtherCollection || ""}</td>
+                      <td>{AmmountOfOtherCollection || ""}</td>
                       <td>{NumOfDC || ""}</td>
                       <td>{AmountOfDC || ""}</td>
                       <td></td>
