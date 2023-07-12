@@ -9,6 +9,7 @@ import BookInfo from './Pages/Admin/Books/BookInfo';
 import UpdateBookInfo from './Pages/Admin/Books/UpdateBookInfo';
 import RequireAuth from './Pages/Login/RequireAuth';
 import DNPReports from './Pages/Reports/DNPReports';
+import DNPReportsList from './Pages/Reports/DNPReportsList';
 import CollectionReports from './Pages/Reports/CollectionReports';
 import KWReport from './Pages/Reports/KWReport';
 import MyBill from './Pages/Users/MyBill';
@@ -31,6 +32,7 @@ import UserLogin from './Pages/Users/UserLogin';
 import SignUp from './Pages/Users/SignUp';
 import ConsumerImport from './Pages/Import/ConsumerImport';
 import ForgotPassword from './Pages/Users/ForgotPassword';
+import ArrearImport from './Pages/Import/ArrearImport';
 
 
 
@@ -60,6 +62,7 @@ function App() {
           <Route path="/collection-info-report" element={<RequireAuth><CollectionReports /></RequireAuth>}></Route>
           <Route path="/kw-sales-info-report" element={<RequireAuth><KWReport /></RequireAuth>}></Route>
           <Route path="/dnp-info-report" element={<RequireAuth><DNPReports /></RequireAuth>}></Route>
+          <Route path="/dnp-report" element={<RequireAuth><DNPReportsList /></RequireAuth>}></Route>
           {
             (user?.role == 'officeHead' || user?.role == 'zonalAdmin' || user?.role == 'pbsAdmin' || user?.role == 'admin') ? <>
               <Route path="/users" element={<RequireAuth><Users /></RequireAuth>}></Route>
@@ -68,6 +71,7 @@ function App() {
           }
           <Route path="/importBill" element={<RequireAuth><BillImport /></RequireAuth>}></Route>
           <Route path="/importConsumer" element={<RequireAuth><ConsumerImport /></RequireAuth>}></Route>
+          <Route path="/importArrear" element={<RequireAuth><ArrearImport /></RequireAuth>}></Route>
           {/* <Route path="/users" element={<Users />}></Route> */}
 
           <Route path="/offices" element={<RequireAuth><Offices></Offices></RequireAuth>}></Route>

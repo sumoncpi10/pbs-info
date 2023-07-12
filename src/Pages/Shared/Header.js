@@ -6,19 +6,19 @@ import { useEffect, useState } from "react";
 
 
 const Header = () => {
-      const [token, setToken] = useState('');
-      const [user, setUser] = useState(null);
-        const navigate = useNavigate();
+    const [token, setToken] = useState('');
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
     // const [user, loading, error] = useAuthState(auth);
     useEffect(() => {
-    // Check if a token exists in localStorage or sessionStorage
+        // Check if a token exists in localStorage or sessionStorage
         const storedToken = localStorage.getItem('token');
-            const storedUser = JSON.parse(localStorage.getItem('user'));
+        const storedUser = JSON.parse(localStorage.getItem('user'));
 
-            if (storedToken && storedUser) {
-                setToken(storedToken);
-                setUser(storedUser);
-            }
+        if (storedToken && storedUser) {
+            setToken(storedToken);
+            setUser(storedUser);
+        }
     }, [localStorage.getItem('token')]);
     // console.log(user);
     // const logout = () => {
@@ -26,12 +26,12 @@ const Header = () => {
     //     // localStorage.removeItem('accessToken');
     // };
     const handleLogout = () => {
-      // Clear the token from localStorage or sessionStorage
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      setToken('');
-      setUser('')
-       navigate("/userLogin");
+        // Clear the token from localStorage or sessionStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setToken('');
+        setUser('')
+        navigate("/userLogin");
     };
     return (
         <nav className="navbar navbar-expand-lg sticky-top">
@@ -46,66 +46,68 @@ const Header = () => {
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         {
-                                (user?.role == 'employee'||user?.role == 'officeHead'||user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
-                        
-                        <>
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Info Entry
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/dnp-info">DNP Information</Link></li>
-                                    {/* <li><Link className="dropdown-item" to="/kw-info">KWH Information</Link></li> */}
-                                    {/* <li><Link className="dropdown-item" to="/">Another action</Link></li> */}
-                                    {/* <li><hr className="dropdown-divider" /></li> */}
-                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                                </ul>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Report
-                                </Link>
-                                <ul className="dropdown-menu">
+                            (user?.role == 'employee' || user?.role == 'officeHead' || user?.role == 'zonalAdmin' || user?.role == 'pbsAdmin' || user?.role == 'admin') ?
 
-                                    <li><Link className="dropdown-item" to="/collection-info-report">আদায়ের তথ্য</Link></li>
-                                    <li><Link className="dropdown-item" to="/kw-sales-info-report">বিক্রয় কিলোয়াট</Link></li>
-                                    {/* <li><Link className="dropdown-item" to="/dnp-info-report">বকেয়ার তথ্য</Link></li> */}
-                                    {/* <li><hr className="dropdown-divider" /></li> */}
-                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                                </ul>
-                            </li>
-                        </>
-                        :""
+                                <>
+                                    <li className="nav-item dropdown">
+                                        <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Info Entry
+                                        </Link>
+                                        <ul className="dropdown-menu">
+                                            <li><Link className="dropdown-item" to="/dnp-info">DNP Information</Link></li>
+                                            {/* <li><Link className="dropdown-item" to="/kw-info">KWH Information</Link></li> */}
+                                            {/* <li><Link className="dropdown-item" to="/">Another action</Link></li> */}
+                                            {/* <li><hr className="dropdown-divider" /></li> */}
+                                            {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                        </ul>
+                                    </li>
+                                    <li className="nav-item dropdown">
+                                        <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Report
+                                        </Link>
+                                        <ul className="dropdown-menu">
+
+                                            <li><Link className="dropdown-item" to="/collection-info-report">আদায়ের তথ্য</Link></li>
+                                            <li><Link className="dropdown-item" to="/kw-sales-info-report">বিক্রয় কিলোয়াট</Link></li>
+                                            <li><Link className="dropdown-item" to="/dnp-report">ডিএনপি লিস্ট</Link></li>
+                                            {/* <li><Link className="dropdown-item" to="/dnp-info-report">বকেয়ার তথ্য</Link></li> */}
+                                            {/* <li><hr className="dropdown-divider" /></li> */}
+                                            {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                        </ul>
+                                    </li>
+                                </>
+                                : ""
                         }
                         {
-                            (user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Import
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    
-                                    <li><Link className="dropdown-item" to="/importBill">Import Bill</Link></li>
-                                    <li><Link className="dropdown-item" to="/importConsumer">Import Consumer</Link></li>
-                                    
-                                </ul>
-                            </li>:""
+                            (user?.role == 'zonalAdmin' || user?.role == 'pbsAdmin' || user?.role == 'admin') ?
+                                <li className="nav-item dropdown">
+                                    <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Import
+                                    </Link>
+                                    <ul className="dropdown-menu">
+
+                                        <li><Link className="dropdown-item" to="/importBill">Import Bill</Link></li>
+                                        <li><Link className="dropdown-item" to="/importConsumer">Import Consumer</Link></li>
+                                        <li><Link className="dropdown-item" to="/importArrear">Import Arraer</Link></li>
+
+                                    </ul>
+                                </li> : ""
                         }
                         {
-                            (user?.role == 'officeHead'||user?.role == 'zonalAdmin'||user?.role == 'pbsAdmin'||user?.role == 'admin') ?
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Admin
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/books">Manage Books</Link></li>
-                                    <li><Link className="dropdown-item" to="/users">Manage Users</Link></li>
-                                    {/* <li><Link className="dropdown-item" to="/posting">Manage Posting</Link></li> */}
-                                    {/* <li><Link className="dropdown-item" to="/offices">Manage Office</Link></li> */}
-                                    {/* <li><hr className="dropdown-divider" /></li> */}
-                                    {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
-                                </ul>
-                            </li>:""
+                            (user?.role == 'officeHead' || user?.role == 'zonalAdmin' || user?.role == 'pbsAdmin' || user?.role == 'admin') ?
+                                <li className="nav-item dropdown">
+                                    <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Admin
+                                    </Link>
+                                    <ul className="dropdown-menu">
+                                        <li><Link className="dropdown-item" to="/books">Manage Books</Link></li>
+                                        <li><Link className="dropdown-item" to="/users">Manage Users</Link></li>
+                                        {/* <li><Link className="dropdown-item" to="/posting">Manage Posting</Link></li> */}
+                                        {/* <li><Link className="dropdown-item" to="/offices">Manage Office</Link></li> */}
+                                        {/* <li><hr className="dropdown-divider" /></li> */}
+                                        {/* <li><Link className="dropdown-item" to="/">Something else here</Link></li> */}
+                                    </ul>
+                                </li> : ""
                         }
                         <li className="nav-item">
                             {/* <Link className="nav-link disabled">Disabled</Link> */}
@@ -120,25 +122,25 @@ const Header = () => {
                                 {/* <Link to='/signup' className='btn btn-primary mx-2'>SignUp</Link> */}
                                 {/* <button className="dropdown-item" onClick={handleLogout}>Log out</button> */}
                             </div>
-                            :<><Link to='/users/mybill' className='btn btn-primary mx-3'>My Electricity Bill</Link>
-                            <div className="flex-shrink-0 dropdown">
-                                <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-                                    <img src={user?.photoURL ? user.photoURL : "https://api.lorem.space/image/face?hash=33791"} alt="mdo" width="32" height="32" className="rounded-circle" />
-                                </a>
-                                <ul className=" dropdown-menu text-small shadow collapse" data-popper-placement="bottom-end" style={{ "position": "absolute", "inset": "0px 0px auto auto", "margin": "0px", "transform": "translate(0px, 34px)" }}>
-                                    <li >
-                                        <button className="d-flex justify-content-between  ">{user?.displayName}</button>
-                                    </li>
-                                    <hr></hr>
-                                    <li><a className="dropdown-item" href="#">Settings</a></li>
-                                    <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    {/* <li><a className="dropdown-item" onClick={logout}>Sign out</a></li> */}
-                                    <li><a className="dropdown-item" onClick={handleLogout}>Log out</a></li>
-                                </ul>
-                            </div>
+                            : <><Link to='/users/mybill' className='btn btn-primary mx-3'>My Electricity Bill</Link>
+                                <div className="flex-shrink-0 dropdown">
+                                    <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <img src={user?.photoURL ? user.photoURL : "https://api.lorem.space/image/face?hash=33791"} alt="mdo" width="32" height="32" className="rounded-circle" />
+                                    </a>
+                                    <ul className=" dropdown-menu text-small shadow collapse" data-popper-placement="bottom-end" style={{ "position": "absolute", "inset": "0px 0px auto auto", "margin": "0px", "transform": "translate(0px, 34px)" }}>
+                                        <li >
+                                            <button className="d-flex justify-content-between  ">{user?.displayName}</button>
+                                        </li>
+                                        <hr></hr>
+                                        <li><a className="dropdown-item" href="#">Settings</a></li>
+                                        <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        {/* <li><a className="dropdown-item" onClick={logout}>Sign out</a></li> */}
+                                        <li><a className="dropdown-item" onClick={handleLogout}>Log out</a></li>
+                                    </ul>
+                                </div>
                             </>
-                            
+
                     }
                 </div>
             </div>
