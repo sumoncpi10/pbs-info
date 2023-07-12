@@ -42,7 +42,7 @@ const DNPReportsList = () => {
                 setZonals(data);
                 console.log(data);
             })
-    }, [user])
+    }, [])
     const btnSearch = async (e) => {
         e.preventDefault();
 
@@ -51,7 +51,7 @@ const DNPReportsList = () => {
 
         const bookNo = e.target.bookNo.value;
 
-        fetch(`https://pbsofficeinfosql.onrender.comdnpList?zonal_code=${user?.zonal_code}&bookNo=${bookNo}`)
+        fetch(`https://pbsofficeinfosql.onrender.com/dnpList?zonal_code=${user?.zonal_code}&bookNo=${bookNo}`)
             .then(res => res.json())
             .then(data => {
                 setDnpListInfo(data);
