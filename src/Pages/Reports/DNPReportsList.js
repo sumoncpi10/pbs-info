@@ -42,7 +42,7 @@ const DNPReportsList = () => {
                 setZonals(data);
                 console.log(data);
             })
-    }, [])
+    }, [user])
     const btnSearch = async (e) => {
         e.preventDefault();
 
