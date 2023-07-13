@@ -50,7 +50,7 @@ const Home = () => {
   };
 
   if (isLoading) {
-    return <h2>Loading.............</h2>;
+    return <h2 className='text-center'>Loading.............</h2>;
   }
 
   if (isError) {
