@@ -63,6 +63,22 @@ const DNPReportsList = () => {
     const setZonalCodeM = (e) => {
         setZonalCode(e.target.value);
     }
+    const printedAccountNos = [];
+    // Create an object to store the sums for each dnp.accountNo
+    const accountNoSums = {};
+    let sum = 0;
+    // Iterate over the dnpListInfo array
+    dnpListInfo?.forEach((dnp) => {
+        // Check if the current dnp.accountNo exists in the accountNoSums object
+        if (!accountNoSums.hasOwnProperty(dnp.accountNo)) {
+            // If not, initialize the sum for that accountNo
+            accountNoSums[dnp.accountNo] = 0;
+        }
+
+        // Add the current dnp.arrTotal to the sum for the corresponding accountNo
+        accountNoSums[dnp.accountNo] += dnp.arrTotal;
+        sum += dnp.arrTotal;
+    });
 
     return (
         <div>
@@ -120,58 +136,80 @@ const DNPReportsList = () => {
                                 <table className="table project-list-table table-nowrap align-middle table-borderless">
                                     <thead>
                                         <tr>
-                                            <th scope="col" className="ps-4" style={{ "width": "50px" }}>
-                                                <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck" /><label className="form-check-label" htmlFor="contacusercheck"></label></div>
-                                            </th>
+
+                                            <th scope="col">ক্রঃ</th>
                                             <th scope="col">বই</th>
-                                            <th scope="col">হিসাব নং</th>
+                                            <th scope="col">হিসাব</th>
                                             <th scope="col">নাম</th>
                                             <th scope="col">পিতা/স্বামী</th>
                                             <th scope="col">ঠিকানা</th>
-                                            <th scope="col">বকেয়া মাস</th>
+                                            <th scope="col">মাস</th>
                                             <th scope="col">টাকা</th>
-                                            {/* <th scope="col" style={{ "width": "200px" }}>Action</th> */}
+                                            <th scope="col">মোট</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
-                                            dnpListInfo.map(dnp => <tr >
-                                                <th scope="row" className="ps-4">
-                                                    <div className="form-check font-size-16"><input type="checkbox" className="form-check-input" id="contacusercheck1" /><label className="form-check-label" htmlFor="contacusercheck1"></label></div>
-                                                </th>
-                                                <td><span className="badge badge-soft-success mb-0">{dnp.bookNo}</span></td>
-                                                <td>{dnp.accountNo}</td>
-                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.name}</td>
-                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.father}</td>
-                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.address}</td>
-                                                <td>{dnp.arrBillPeriod}</td>
-                                                <td>{dnp.arrTotal}</td>
+                                            dnpListInfo.map((dnp, i) => (
 
-                                                {/* {
-                                                    users.map(user => user._id == collection.collectedBy ? < td > {user.displayName}</td> : '')
-                                                } */}
-                                            </tr>
-                                            )
+                                                <React.Fragment key={i}>
+                                                    <tr>
+                                                        {!printedAccountNos.includes(dnp.accountNo) ? (
+                                                            <>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{printedAccountNos.includes(dnp.accountNo) || printedAccountNos.push(dnp.accountNo)}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>
+                                                                    <span className="badge badge-soft-success mb-0">{dnp.bookNo}</span>
+                                                                </td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.accountNo}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.name}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.father}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.address}</td>
+                                                                <td >{dnp.arrBillPeriod}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.arrTotal}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}> {accountNoSums[dnp?.accountNo]}</td>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td >{dnp.arrBillPeriod}</td>
+                                                                <td style={{ fontFamily: 'SutonnyMJ' }}>{dnp.arrTotal}</td>
+                                                                <td></td>
+                                                            </>
+                                                        )}
+
+                                                    </tr>
+
+
+                                                </React.Fragment>
+
+
+                                            ))
                                         }
+
+
+
+
                                         <tr className=' bg-light'>
-                                            {/* <th scope="row" className="ps-4">
-                                                <div className="form-check font-size-16">
-                                                    <input type="checkbox" className="form-check-input" id="contacusercheck1" />
-                                                    <label className="form-check-label" htmlFor="contacusercheck1"></label></div>
-                                            </th> */}
-                                            {/* <td><span className="badge badge-soft-primary mb-0">Total</span></td>
-                                            <td>{NumOfCashCollection ? NumOfCashCollection : "0"}</td>
-                                            <td>{AmountOfCashCollection ? AmountOfCashCollection : "0"}</td>
-                                            <td>{NumOfOtherCollection ? NumOfOtherCollection : "0"}</td>
-                                            <td>{AmmountOfOtherCollection ? AmmountOfOtherCollection : "0"}</td>
-                                            <td>{NumOfDC ? NumOfDC : "0"}</td>
-                                            <td>{AmmountOfDC ? AmmountOfDC : "0"}</td>
+
                                             <td></td>
-                                            <td></td> */}
-                                            {
-                                                // users.map(user => user._id == collection.collectedBy ? < td > {user.displayName}</td> : '')
-                                            }
+
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><span className="badge badge-soft-primary mb-0">মোটঃ</span></td>
+                                            <td style={{ fontFamily: 'SutonnyMJ' }}>{sum}</td>
+
                                         </tr>
+
                                     </tbody>
                                 </table>
                             </div>
