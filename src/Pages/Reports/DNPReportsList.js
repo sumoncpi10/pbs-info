@@ -191,10 +191,6 @@ const DNPReportsList = () => {
 
                                             ))
                                         }
-
-
-
-
                                         <tr className=' bg-light'>
 
                                             <td></td>
