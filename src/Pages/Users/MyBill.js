@@ -3,6 +3,7 @@ import '../../fonts.css';
 
 const MyBill = () => {
     const [bill, setBill] = useState("");
+    const [bills, setBills] = useState("");
 
     const btnSearch = (e) => {
         e.preventDefault();
@@ -12,6 +13,7 @@ const MyBill = () => {
             .then(data => {
                 console.log(data[0]);
                 setBill(data[0]);
+                setBills(data)
             })
     }
     return (
@@ -38,9 +40,9 @@ const MyBill = () => {
 
                                 <div className="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center" style={{ fontFamily: 'SutonnyMJ' }}>
                                     <h6 > এসএমএস হিসাব নং: {bill?.smsAccountNumber}</h6>
-                                    <h4 className="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600" style={{ fontFamily: 'SutonnyMJ' }}>নাম: {bill?.cName}</h4>
-                                    <h5 style={{ fontFamily: 'SutonnyMJ' }}>পিতা/স্বামী:{bill?.fName}</h5>
-                                    <p className="sm-width-95 sm-margin-auto">গ্রাম: {bill?.cAddress}</p>
+                                    <h4 className="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600" style={{ fontFamily: 'SutonnyMJ' }}>নাম: {bill?.name}</h4>
+                                    <h5 style={{ fontFamily: 'SutonnyMJ' }}>পিতা/স্বামী:{bill?.father}</h5>
+                                    <p className="sm-width-95 sm-margin-auto">গ্রাম: {bill?.address}</p>
                                     <div className="margin-20px-top team-single-icons">
                                         <ul className="no-margin">
                                         </ul>
@@ -171,30 +173,36 @@ const MyBill = () => {
                                     <table className="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Sl No</th>
+                                                <th scope="col">Account No</th>
+                                                <th scope="col">Bill Period</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Arrear Amt</th>
+                                                <th scope="col">Total Bill</th>
+                                                <th scope="col">LPC Amount</th>
+                                                <th scope="col">Total Bill With Lpc</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
+                                            {bills ? bills.map((b, index) => <tr>
+                                                <th scope="row">{index + 1}</th>
+                                                <td>{b.accountNo}</td>
+                                                <td>{b.billPeriod}</td>
+                                                <td>{b.billAmount}</td>
+                                                <td>{b.ArrearAmt}</td>
+                                                <td>{b.totalBill}</td>
+                                                <td>{b.lpcAmount}</td>
+                                                <td>{b.totalBillWithLpc}</td>
+                                            </tr>)
+                                                : ""
+                                            }
+
+
+                                            {/* <tr>
+                                                <td colspan="3">Total</td>
+                                                <th scope="row"></th>
                                                 <td>@twitter</td>
-                                            </tr>
+                                            </tr> */}
                                         </tbody>
                                     </table>
 
