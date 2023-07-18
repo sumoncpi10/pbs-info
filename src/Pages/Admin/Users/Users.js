@@ -319,7 +319,9 @@ const Users = () => {
                                             </th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Position</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col">Zonal</th>
+                                            <th scope="col">Role</th>
+                                            <th scope="col">Phone</th>
 
                                             {
                                                 user?.role == 'admin' ? <th scope="col" style={{ "width": "200px" }}>Action</th> : ""

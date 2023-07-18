@@ -184,11 +184,7 @@ const DNPReportsList = () => {
                                                         )}
 
                                                     </tr>
-
-
                                                 </React.Fragment>
-
-
                                             ))
                                         }
                                         <tr className=' bg-light'>
