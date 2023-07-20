@@ -28,7 +28,7 @@ const ArrearImport = () => {
     }
     const handleImportBill = (e) => {
         e.preventDefault();
-        fetch('https://pbsofficeinfosql.onrender.com/import-csv-arrear', {
+        fetch('http://localhost:5000/import-csv-arrear', {
             method: 'POST',
             // limits:{fileSize: '1gb'},
             headers: {
@@ -41,7 +41,7 @@ const ArrearImport = () => {
                 console.log('success', data);
                 e.target.reset();
                 // setData("");
-                toast("Consumer Import Successfully!");
+                toast(`Consumer Import Successfully! ${data?.message}`);
             })
     }
     return (
